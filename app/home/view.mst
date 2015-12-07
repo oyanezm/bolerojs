@@ -1,0 +1,3 @@
+Framework Test name <b>{{ framework.name}}</b><br/>
+Version <b>{{ framework.version }}</b><br/>
+<a route="blog" >Try my Blog</a>

@@ -2,14 +2,20 @@ define([],function(){
 
     /**
      * Constructor
+     *
+     * @param {string} url
+     * @param {string} name
+     * @param {string} controller
      **/
-    var Route = function(url,name){
+    var Route = function(url,name,controller){
         this.url = url;
         this.name = name;
+        this.controller = controller;
     }
 
     /**
      * Get url based on route name
+     * @param {string} name
      **/
     Route.url = function(name){
         var url = "";
@@ -22,7 +28,41 @@ define([],function(){
     }
 
     /**
+     * Get route based on route name
+     * @param {string} name
+     **/
+    Route.get = function(name){
+
+        var routematch;
+
+        f.routes.forEach(function(route){
+            if(route.name == name)
+                routematch = route;
+        });
+        return routematch;
+    }
+
+
+    /**
+     * Get Current Route
+     **/
+    Route.get_current = function(){
+
+        var routematch;
+        var path = window.location.pathname;
+        var name = path.replace(/^\/|\/$/g, '');
+
+        f.routes.forEach(function(route){
+            if(route.url == name)
+                routematch = route;
+        });
+
+        return routematch;
+    }
+
+    /**
      * Collect Routes from Modules
+     * @param {array} modules
      **/
     Route.collect = function(modules){
 
