@@ -4,6 +4,11 @@ div,body{
   padding:0px;
 }
 
+html{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
 body{
   font-family:'Lato', tahoma;
   background: #0dc5c1;
