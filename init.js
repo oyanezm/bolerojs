@@ -2,7 +2,7 @@
  * Configure RequireJs
  **/
 requirejs.config({
-    baseUrl: "http://www.localhost:8080",
+    baseUrl: "http://www.llamin.cl:8080",
 
     paths: {
         "mustache": "system/lib/mustache",

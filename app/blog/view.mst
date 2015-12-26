@@ -1,4 +1,4 @@
 Hi this is <b>{{ user.name }}</b> <br/>
 {{ user.name }}: {{ user.signature }} <br/>
-Powered by Mustache!
+Powered by Mustache!<br/>
 <a route="home">back to home</a>

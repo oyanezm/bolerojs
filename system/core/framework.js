@@ -1,11 +1,13 @@
 define([
     "system/core/route",
     "system/core/ajax",
-    "system/core/controller"
+    "system/core/controller",
+    "system/core/overlay"
 ],function(
     Route,
     Ajax,
-    Controller
+    Controller,
+    Overlay
 ){
 
     Framework = function(){
@@ -22,6 +24,9 @@ define([
         controller.run();
 
         Ajax.bind();
+
+        Overlay().fadeOut();
+
     }
 
     return Framework;

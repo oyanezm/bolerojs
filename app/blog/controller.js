@@ -11,7 +11,10 @@ define(function(){
             user: user
         };
 
-        View.render("blog",context);
+        View.render(
+            "blog",
+            context
+        );
     }
 
     return Controller;

@@ -1,10 +1,12 @@
 define([
     "system/core/route",
-    "system/core/controller"
+    "system/core/controller",
+    "system/core/overlay"
 ],
 function(
     Route,
-    Controller
+    Controller,
+    Overlay
 ){
 
     var Ajax = function(){}
@@ -15,12 +17,22 @@ function(
 
             e.preventDefault();
 
-            var url = $(this).attr("href");
-            var tag = $(this).attr("route");
-            var route = Route.get(tag);
-            var controller = new Controller(route);
+            var link = $(this);
 
-            controller.run();
+            $("main").fadeOut(function(){
+
+                var url = link.attr("href");
+                var tag = link.attr("route");
+
+                Overlay.replace();
+
+                // Get Rout & Controller
+                var route = Route.get(tag);
+                var controller = new Controller(route);
+
+                controller.run();
+            });
+
         });
     }
 

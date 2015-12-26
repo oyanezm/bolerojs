@@ -7,10 +7,16 @@ define([],function(){
      * @param {string} name
      * @param {string} controller
      **/
-    var Route = function(url,name,controller){
+    var Route = function(
+        url,
+        name,
+        controller,
+        title
+    ){
         this.url = url;
         this.name = name;
         this.controller = controller;
+        this.title = title;
     }
 
     /**
