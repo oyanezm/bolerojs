@@ -1,4 +1,4 @@
-div,body{
+div,body,h1{
   box-sizing:border-box;
   margin:0px;
   padding:0px;
@@ -14,7 +14,6 @@ body{
   background: #0dc5c1;
   color:white;
   width:100%;
-  padding:20px;
 }
 
 .overlay{
@@ -26,6 +25,14 @@ body{
   left:0px;
 }
 
+header{
+  background:rgb(0, 56, 56);
+  padding:10px 20px;
+}
+
+main{
+  padding:20px;
+}
 main .loader{
   width:4em;
   height:4em;
