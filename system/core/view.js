@@ -7,6 +7,15 @@ function(
     Ajax
 ){
 
+    function preload(images,callback){
+        images.each(function(){
+            $('<img/>')[0].src = $(this).attr("src");
+        }).promise().done(function(){
+            callback();
+        });
+    }
+
+
     var View = function(){};
 
     /**
@@ -14,12 +23,12 @@ function(
      **/
     View.render = function(
         name,
-        context
+        context,
+        dom
     ){
 
         var path = "app/" + name + "/view.mst";
         var url = require.toUrl(path);
-        var croute = Route.get_current();
 
         $.get(url,function(data){
 
@@ -28,14 +37,19 @@ function(
                 context
             );
 
-            $("main").html(html);
-            $("title").text(croute.title);
+            if( typeof(dom) !== "undefined" ){
+                dom.html(html);
+            }else{
 
-            Route.replace();
+                $("main").html(html);
+                preload($("main img"),function(){;
+                    Route.replace();
+                    Ajax.bind();
+                    $("main").fadeIn();
+                });
 
-            Ajax.bind();
+            }
 
-            $("main").fadeIn();
         });
     }
 

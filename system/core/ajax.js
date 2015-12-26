@@ -1,17 +1,19 @@
 define([
     "system/core/route",
     "system/core/controller",
-    "system/core/overlay"
+    "system/core/spinner"
 ],
 function(
     Route,
     Controller,
-    Overlay
+    Spinner
 ){
 
     var Ajax = function(){}
 
     Ajax.bind = function(){
+
+        var spinner = new Spinner();
 
         $("a").on("click",function(e){
 
@@ -24,7 +26,7 @@ function(
                 var url = link.attr("href");
                 var tag = link.attr("route");
 
-                Overlay.replace();
+                spinner.attach($(this));
 
                 // Get Rout & Controller
                 var route = Route.get(tag);

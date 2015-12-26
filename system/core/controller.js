@@ -22,7 +22,7 @@ define(function(){
 
         window.history.pushState(
             "object or string",
-            "Title",
+            this.route.title,
             require.toUrl(this.route.url)
         );
     }

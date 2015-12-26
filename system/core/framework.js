@@ -2,20 +2,28 @@ define([
     "system/core/route",
     "system/core/ajax",
     "system/core/controller",
-    "system/core/overlay"
+    "system/core/overlay",
+    "system/core/widget"
 ],function(
     Route,
     Ajax,
     Controller,
-    Overlay
+    Overlay,
+    Widget
 ){
 
+    /**
+     * Constructor
+     **/
     Framework = function(){
 
         this.routes = [];
 
     }
 
+    /**
+     * Initialize Framework
+     **/
     Framework.prototype.run = function(){
 
         var route = Route.get_current();
@@ -24,6 +32,8 @@ define([
         controller.run();
 
         Ajax.bind();
+
+        Widget.initialize();
 
         Overlay().fadeOut();
 

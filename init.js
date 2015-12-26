@@ -24,7 +24,7 @@ requirejs([
     "system/core/view",
 
     // Routes
-    "app/home/route",
+    "app/popular/route",
     "app/blog/route",
 
     "mustache",
@@ -36,7 +36,7 @@ function(
     View,
 
     // Routes
-    Home,
+    Popular,
     Blog,
 
     Mustache
@@ -49,7 +49,7 @@ function(
     f = new Framework();
 
     // Add Routes
-    f.routes.push(Home);
+    f.routes.push(Popular);
     f.routes.push(Blog);
 
     f.run();
