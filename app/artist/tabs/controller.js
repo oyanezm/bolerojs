@@ -5,11 +5,12 @@ function(
   Artist
 ){
 
-  var Controller = function(){
+  var Controller = function(args){
 
-    var id = 1;
+    var id = args[0];
 
     var context = {
+      id: id,
       artist: Artist.get(id)
     }
 

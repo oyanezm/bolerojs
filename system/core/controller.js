@@ -14,11 +14,12 @@ define(function(){
 
     var controller = this.route.controller;
     var module = controller.split('.').join('/');
+    var args = this.route.args;
 
     var path = "app/" + module + "/controller";
 
     require([path],function(controller){
-      controller();
+      controller(args);
     });
 
   }

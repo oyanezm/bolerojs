@@ -15,6 +15,7 @@ define([],function(){
     this.controller = data.controller;
     this.title = data.title;
     this.callback = data.callback;
+    this.args = [];
   }
 
   /**
@@ -61,8 +62,19 @@ define([],function(){
     var name = path.replace(/^\/|\/$/g, '');
 
     f.routes.forEach(function(route){
-      if(route.url == name)
+
+      var match = name.match(route.url);
+
+      if( path = "/" && route.url == "" ){
         routematch = route;
+      }
+
+      if( match && match.length > 1){
+        match.shift();
+        routematch = route;
+        routematch.args = match;
+      }
+
     });
 
     return routematch;
@@ -95,11 +107,15 @@ define([],function(){
     $("a[route]").each(function(){
 
       var name = $(this).attr("route");
-      var args = $(this).attr("args");
+      var args = eval($(this).attr("args"));
       var url = Route.url(name,args);
 
       $(this).attr("href",url);
     });
+  }
+
+  Route.get_params = function (name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
   }
 
   return Route;

@@ -23,14 +23,18 @@ function(
 
       $("main").fadeOut(function(){
 
+        var args = link.attr("args");
         var url = link.attr("href");
         var tag = link.attr("route");
 
         spinner.attach($(this));
 
-        // Get Rout & Controller
-        var route = Route.get(tag);
-        var controller = new Controller(route);
+        // Get Route & Controller
+        var route, controller;
+
+        route = Route.get(tag);
+        route.args = eval(args);
+        controller = new Controller(route);
 
         controller.run();
 

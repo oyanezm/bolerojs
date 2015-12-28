@@ -1,4 +1,4 @@
-var baseUrl = window.location.href;
+var baseUrl = "http://" + window.location.host;
 
 /**
  * Configure RequireJs

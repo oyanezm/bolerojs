@@ -1,6 +1,14 @@
 <html>
 
   <head>
+
+    <!-- Set Base -->
+    <script>
+      var link = document.createElement('base');
+      link.href = "http://" + document.location.host;
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
     <title></title>
     <link rel="stylesheet" href="static/css/loader.css">
     <link rel="stylesheet/less" type="text/css" href="static/less/styles.less" />
