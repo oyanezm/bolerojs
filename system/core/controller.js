@@ -1,31 +1,27 @@
 define(function(){
 
-    /**
-     * Constructor
-     **/
-    var Controller = function(route){
-        this.route = route;
-    }
+  /**
+   * Constructor
+   **/
+  var Controller = function(route){
+    this.route = route;
+  }
 
-    /**
-     * Executes controller
-     **/
-    Controller.prototype.run = function(){
+  /**
+   * Executes controller
+   **/
+  Controller.prototype.run = function(){
 
-        var jscontroller = this.route.controller;
+    var controller = this.route.controller;
+    var module = controller.split('.').join('/');
 
-        var path = "app/" + jscontroller.split('.').join('/') + "/controller";
+    var path = "app/" + module + "/controller";
 
-        require([path],function(controller){
-            controller();
-        });
+    require([path],function(controller){
+      controller();
+    });
 
-        window.history.pushState(
-            "object or string",
-            this.route.title,
-            require.toUrl(this.route.url)
-        );
-    }
+  }
 
-    return Controller;
+  return Controller;
 });

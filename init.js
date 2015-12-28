@@ -1,56 +1,66 @@
+var baseUrl = window.location.href;
+
 /**
  * Configure RequireJs
  **/
 requirejs.config({
-    baseUrl: "http://www.llamin.cl:8080",
 
-    paths: {
-        "mustache": "system/lib/mustache",
-        "jquery": "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min"
-    },
+  baseUrl: baseUrl,
 
-    shim: {
-        'mustache': {
-            exports: 'Mustache'
-        }
+  paths: {
+    "mustache": "system/lib/mustache",
+    "jquery": "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min"
+  },
+
+  shim: {
+    'mustache': {
+      exports: 'Mustache'
     }
+  }
 
 });
 
+/**
+ * Initialize RequireJs
+ **/
 requirejs([
+  // CORE
+  "system/core/framework",
+  "system/core/view",
 
-    // CORE
-    "system/core/framework",
-    "system/core/view",
+  // Routes
+  "app/artist/popular/route",
+  "app/artist/tabs/route",
+  "app/blog/route",
 
-    // Routes
-    "app/popular/route",
-    "app/blog/route",
-
-    "mustache",
-    "jquery"
+  "mustache",
+  "jquery"
 ],
 function(
-    // Core
-    Framework,
-    View,
 
-    // Routes
-    Popular,
-    Blog,
+  // Core
+  Framework,
+  View,
 
-    Mustache
+  // Routes
+  Popular,
+  Artist,
+  Blog,
+
+  Mustache
 ){
 
-    // Globals
-    window.Mustache = Mustache;
-    window.View = View;
+  // Globals
+  window.Mustache = Mustache;
+  window.View = View;
 
-    f = new Framework();
+  f = new Framework();
 
-    // Add Routes
-    f.routes.push(Popular);
-    f.routes.push(Blog);
+  // Add Routes
+  f.routes.push(Popular);
+  f.routes.push(Artist);
+  f.routes.push(Blog);
 
-    f.run();
+  f.run();
+
 });

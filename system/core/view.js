@@ -1,57 +1,45 @@
 define([
-    "system/core/route",
-    "system/core/ajax"
+  "system/core/route"
 ],
 function(
-    Route,
-    Ajax
+  Route
 ){
 
-    function preload(images,callback){
-        images.each(function(){
-            $('<img/>')[0].src = $(this).attr("src");
-        }).promise().done(function(){
-            callback();
-        });
-    }
+  var View = function(){};
 
+  /**
+   * Render View Usign Mustache
+   **/
+  View.render = function(
+    name,
+    context,
+    dom
+  ){
 
-    var View = function(){};
+    var module = name.split('.').join('/');
+    var path = "app/" + module + "/view.mst";
+    var url = require.toUrl(path);
 
-    /**
-     * Render View Usign Mustache
-     **/
-    View.render = function(
-        name,
-        context,
-        dom
-    ){
+    $.get(url,function(data){
 
-        var path = "app/" + name + "/view.mst";
-        var url = require.toUrl(path);
+      // Render View
+      var html = Mustache.render(
+        data,
+        context
+      );
 
-        $.get(url,function(data){
+      if( typeof(dom) !== "undefined" ){
+        dom.html(html);
+      }else{
+        $("main").html(html);
+        $("main").fadeIn();
+      }
 
-            var html = Mustache.render(
-                data,
-                context
-            );
+      Route.replace();
 
-            if( typeof(dom) !== "undefined" ){
-                dom.html(html);
-            }else{
+    });
 
-                $("main").html(html);
-                preload($("main img"),function(){;
-                    Route.replace();
-                    Ajax.bind();
-                    $("main").fadeIn();
-                });
+  }
 
-            }
-
-        });
-    }
-
-    return View;
+  return View;
 });

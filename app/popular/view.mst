@@ -1,6 +1,0 @@
-{{ #artists }}
-    <a class="artist" href="#">
-        <img src="{{ url }}" ></img>
-    </a>
-{{ /artists }}
-<a route="blog" >Go to Blog</a>

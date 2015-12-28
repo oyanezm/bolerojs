@@ -1,0 +1,9 @@
+
+{{ #artists }}
+  <a class="artist" href="#" route="artist.tabs" args="{{ id }}">
+    <img src="{{ url }}" ></img>
+    <span>{{ name }}</span>
+  </a>
+{{ /artists }}
+
+<a route="blog" >Go to Blog</a>

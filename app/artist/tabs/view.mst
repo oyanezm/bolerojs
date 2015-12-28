@@ -1,0 +1,9 @@
+<div class="tabs">
+  <h1> {{ artist.name }}</h1>
+  <img src="{{ artist.img }}" />
+
+  <h2> Tablaturas</h2>
+  {{ #artist.tabs}}
+    <a href="">{{ artist.name }} - {{ name }}</a><br/>
+  {{ /artist.tabs }}
+</div>
