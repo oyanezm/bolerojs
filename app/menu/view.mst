@@ -1,4 +1,4 @@
-<h2>Acor.de</h2><br/>
+<h2 class="brand">Acor.de</h2><br/>
 <form>
     <input placeholder="buscar"></input>
 </form>

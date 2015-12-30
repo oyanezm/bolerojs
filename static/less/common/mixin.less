@@ -1,0 +1,13 @@
+.icon(@id) {
+  content: @id;
+  font-family: "FontAwesome";
+}
+
+.hidden{
+  display:none;
+}
+.hidden-mobile{
+  @media @mobile{
+    .hidden;
+  }
+}

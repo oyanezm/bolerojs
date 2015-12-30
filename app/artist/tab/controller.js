@@ -1,8 +1,8 @@
 define([
-  "app/artist/model"
+  "app/artist/tab/model"
 ],
 function(
-  Artist
+  Tab
 ){
 
   var Controller = function(args){
@@ -11,10 +11,10 @@ function(
 
     var context = {
       id: id,
-      artist: Artist.get(id)
+      tab: Tab.get(id)
     }
 
-    View.render("artist.tabs",context);
+    View.render("artist.tab",context);
   }
 
   return Controller;

@@ -63,6 +63,9 @@ define([],function(){
 
     f.routes.forEach(function(route){
 
+      // quit if found
+      if( typeof(routematch) !== "undefined") return;
+
       var match = name.match(route.url);
 
       if( path = "/" && route.url == "" ){

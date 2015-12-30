@@ -1,10 +1,10 @@
-<div class="tabs">
+<div class="artist-frame">
   <h1> Arg ID: {{ id }}</h1>
   <h1> {{ artist.name }}</h1>
   <img src="{{ artist.img }}" />
 
   <h2> Tablaturas</h2>
   {{ #artist.tabs}}
-    <a href="">{{ artist.name }} - {{ name }}</a><br/>
+    <a route="artist.tab" args="[1]">{{ artist.name }} - {{ name }}</a><br/>
   {{ /artist.tabs }}
 </div>

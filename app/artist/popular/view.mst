@@ -1,15 +1,19 @@
+<div class="popular-frame">
 
-{{ #artists }}
+  <div class="thumbnails">
+    {{ #artists }}
 
-  <a
-    href = "#"
-    class = "artist"
-    route = "artist.tabs"
-    args="[{{ id }}]"
-  >
-    <img src="{{ url }}" ></img>
-    <span>{{ name }}</span>
-  </a>
-{{ /artists }}
+      <a
+        href = "#"
+        class = "artist"
+        route = "artist"
+        args="[{{ id }}]"
+      >
+        <img src="{{ url }}" ></img>
+        <span>{{ name }}</span>
+      </a>
+    {{ /artists }}
+  </div>
 
-<a route="blog" >Go to Blog</a>
+  <a route="blog" class="w100" >Go to Blog</a>
+</div>

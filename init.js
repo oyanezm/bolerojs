@@ -29,8 +29,9 @@ requirejs([
   "system/core/view",
 
   // Routes
+  "app/artist/route",
+  "app/artist/tab/route",
   "app/artist/popular/route",
-  "app/artist/tabs/route",
   "app/blog/route",
 
   "mustache",
@@ -43,8 +44,9 @@ function(
   View,
 
   // Routes
-  Popular,
   Artist,
+  Tab,
+  Popular,
   Blog,
 
   Mustache
@@ -54,13 +56,14 @@ function(
   window.Mustache = Mustache;
   window.View = View;
 
-  f = new Framework();
+  var routes = [
+    Tab,
+    Artist,
+    Popular,
+    Blog
+  ];
 
-  // Add Routes
-  f.routes.push(Popular);
-  f.routes.push(Artist);
-  f.routes.push(Blog);
-
+  f = new Framework(routes);
   f.run();
 
 });

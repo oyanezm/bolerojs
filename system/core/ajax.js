@@ -1,10 +1,12 @@
 define([
   "system/core/route",
+  "system/core/menu",
   "system/core/controller",
   "system/core/spinner"
 ],
 function(
   Route,
+  Menu,
   Controller,
   Spinner
 ){
@@ -15,9 +17,11 @@ function(
 
     var spinner = new Spinner();
 
-    $(document).on("click","a",function(e){
+    $(document).on("click","a[route]",function(e){
 
       e.preventDefault();
+
+      Menu.hide();
 
       var link = $(this);
 

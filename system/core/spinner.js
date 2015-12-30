@@ -5,7 +5,7 @@ define(function(){
     };
 
     Spinner.prototype.attach = function(dom){
-        dom.html(this.dom).show().fadeIn();
+        dom.html(this.dom);
     }
 
     return Spinner;

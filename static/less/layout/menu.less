@@ -1,14 +1,21 @@
 menu{
-  background:rgb(34, 34, 34);
-  width:20%;
-  height:100%;
+  background:@color-one;
+  .w20;
+  .h100;
   float:left;
   padding:20px;
+  @media @mobile{
+    display:none;
+    .w100;
+  }
   a{
     display:block;
   }
   input{
     width:100%;
+  }
+  .brand{
+    .hidden-mobile;
   }
 }
 

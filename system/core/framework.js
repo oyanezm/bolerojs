@@ -1,12 +1,14 @@
 define([
     "system/core/route",
     "system/core/ajax",
+    "system/core/menu",
     "system/core/controller",
     "system/core/overlay",
     "system/core/widget"
 ],function(
     Route,
     Ajax,
+    Menu,
     Controller,
     Overlay,
     Widget
@@ -15,9 +17,9 @@ define([
     /**
      * Constructor
      **/
-    Framework = function(){
+    Framework = function(routes){
 
-        this.routes = [];
+        this.routes = routes;
 
     }
 
@@ -32,6 +34,7 @@ define([
         controller.run();
 
         Ajax.bind();
+        Menu.bind();
 
         Widget.initialize();
 

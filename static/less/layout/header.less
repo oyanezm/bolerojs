@@ -1,6 +1,17 @@
 
 header{
-  background:rgb(0, 56, 56);
-  padding:10px 20px;
+  display:none;
+  background:@color-one;
+  padding:10px;
+  height:60px;
+  @media @mobile{
+    display:block;
+  }
+  .menu-trigger{
+    .rs10;
+    &:before{
+      .icon("\f0c9");
+    }
+  }
 }
 
