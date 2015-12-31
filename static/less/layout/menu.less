@@ -1,15 +1,36 @@
 menu{
-  background:@color-one;
   .w20;
   .h100;
   float:left;
-  padding:20px;
+  background:@color-one;
+  border-right:1px solid @color-one;
+  font-family:@font-two;
+  .f20;
   @media @mobile{
-    display:none;
     .w100;
+    .hidden;
+    background:@color-one-dark;
   }
-  a{
+  .category{
+    height:12.5%;
     display:block;
+    color:@color-two-fade;
+    border-top:1px solid fade(white,10);
+    position:relative;
+    padding-top:10px;
+    padding-left:25px;
+    &:hover{
+      color:lighten(@color-four,30);
+    }
+  }
+  a.category:hover:before{
+    position:absolute;
+    top:0px;
+    left:0px;
+    content:"";
+    width:5px;
+    background:@color-four;
+    .h100;
   }
   input{
     width:100%;

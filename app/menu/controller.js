@@ -7,10 +7,10 @@ define(function(){
         name: "Lo + Buscado",
         route: "artist.popular"
       },
-      { name: "Nuevas Partituras"},
-      { name : "Mejores Partituras" },
-      { name : "Afinador" },
-      { name : "Favoritas" },
+      { name: "Lo + Reciente"},
+      { name : "Lo + Puntuado" },
+      { name : "Mis Tabs" },
+      { name : "Subir Tab" },
       { name : "Salir" }
     ];
 

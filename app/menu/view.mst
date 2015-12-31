@@ -1,10 +1,14 @@
-<h2 class="brand">Acor.de</h2><br/>
-<form>
-    <input placeholder="buscar"></input>
-</form>
-<br/>
-{{ #categories }}
-    <a class="category" href="#" route="{{ route }}">
-        {{ name }}
-    </a>
-{{ /categories }}
+  <a class="category">
+    ACOR.DE TABS<br/><br/>
+  </a>
+
+  {{ #categories }}
+      <a class="category" href="#" route="{{ route }}">
+          {{ name }}
+      </a>
+  {{ /categories }}
+
+  <a class="category">
+    SOCIAL ICONS
+  </a>
+

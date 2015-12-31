@@ -2,6 +2,9 @@ define(function(){
 
   var Tab = function(){}
 
+  /**
+   * Get Single Tab
+   **/
   Tab.get = function(){
 
     var tab = {
@@ -47,6 +50,47 @@ define(function(){
     tab.content = tab.content.replace(/\n/g , "<br>");
 
     return tab;
+  }
+
+  /**
+   * Get recent uploaded tabs
+   **/
+  Tab.get_recent = function(limit){
+    return [
+      {
+        id: 1,
+        title : "el viejo comunista",
+        user:{
+          name:"oyanezm"
+        },
+        artist:{
+          name:"manuel garcia",
+          img:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSEBwV2v5465pMlRETzhzhi4OFTcNgE91huz8Pz4jpEHHgfSKeOuw"
+        }
+      },
+      {
+        id: 2,
+        title : "La funa",
+        user:{
+          name:"oyanezm"
+        },
+        artist:{
+          name:"joe vasconcellos",
+          img:"http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
+        }
+      },
+      {
+        id: 3,
+        title : "el gavilan",
+        user:{
+          name:"oyanezm"
+        },
+        artist:{
+          name:"violeta parra",
+          img:"http://revistaterminal.cl/web/wp-content/uploads/2012/02/violeta.jpg"
+        }
+      }
+    ];
   }
 
   return Tab;

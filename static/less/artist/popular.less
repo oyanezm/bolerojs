@@ -1,12 +1,54 @@
 .popular-frame{
 
+  .recent{
+    .left;
+    .w100;
+    .bs10;
+    .tab{
+      .left;
+      .ts5;
+      width:33.33%;
+      padding:2px;
+      *,a{
+        color:@color-one-fade;
+      }
+      @media @mobile{
+        .w100;
+      }
+      .inner{
+        background:@color-two;
+        overflow:auto;
+        .box-shadow;
+        .thumb{
+          .w30;
+          .left;
+          img{
+            .w100;
+          }
+        }
+        .desc{
+          .w70;
+          .left;
+          padding-left:10px;
+          padding-top:15px;
+          .artist,.song{
+            text-transform:capitalize;
+          }
+        }
+      }
+    }
+  }
+
   .thumbnails{
+    .left;
+    .w100;
     overflow:auto;
 
     .artist{
+      .ts5;
+      .left;
       width:33.33%;
       height:33.33%;
-      float:left;
       padding:1px;
       position:relative;
       overflow:hidden;

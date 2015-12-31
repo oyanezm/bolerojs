@@ -1,14 +1,16 @@
 define([
-  "app/artist/model"
+  "app/artist/model",
+  "app/artist/tab/model"
 ],function(
-  Artist
+  Artist,
+  Tab
 ){
 
   var Controller = function(){
 
-
     var context = {
-        artists: Artist.get_popular()
+      recent: Tab.get_recent(3),
+      artists: Artist.get_popular()
     };
 
     View.render("artist.popular",context);
