@@ -12,7 +12,7 @@ define(function(){
       live: false
     }
 
-    if( this.host == "http://www.js.superdt.cl:8080"){
+    if( this.host == "www.js.superdt.cl:8080"){
       this.state.live = true;
       this.setup = true;
     }
