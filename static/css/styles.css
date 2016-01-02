@@ -437,5 +437,5 @@ menu .category.logo{font-family:Bangers, cursive;}@media only screen and (max-wi
 .popular-frame .thumbnails .artist:hover:before{content:"+";font-size:100px;position:absolute;width:100%;text-align:center;line-height:1.8}@media only screen and (max-width: 529px){.popular-frame .thumbnails .artist:hover:before{line-height:1.2}}
 .artist-frame img{width:300px}
 .tab-frame h1{text-transform:capitalize}
-search form{position:relative}search form input{font-size:20px;padding:15px;padding-left:35px;color:#fff;border:0;border-radius:0;background:#761e02}search form input:hover,search form input:focus{outline:-webkit-focus-ring-color auto 5px;outline-color:rgba(255,255,255,0.6)}
+search form{position:relative}search form input{font-size:20px;padding:15px;width:100%;padding-left:35px;color:#fff;border:0;border-radius:0;background:#761e02}search form input:hover,search form input:focus{outline:-webkit-focus-ring-color auto 5px;outline-color:rgba(255,255,255,0.6)}
 search form .search-icon{position:absolute;top:18px;left:10px}search form .search-icon:before{content:"\f002";font-family:"FontAwesome"}
