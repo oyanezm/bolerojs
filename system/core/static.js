@@ -32,6 +32,7 @@ define([
 
   /**
    * Load less files or compiled
+   * TODO: less async load because high weight
    **/
   Static.less = function(modules){
 
