@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700,400");
 @import url("https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Bangers");
 .w100{width:100%}
 .h100{height:100%}
 .w99{width:99%}
@@ -413,19 +414,20 @@
 .transition{-webkit-transition:background-color 1s ease;-moz-transition:background-color 1s ease;-o-transition:background-color 1s ease;transition:background-color 1s ease}
 device mobile,device tv,device tablet,device desktop{display:none}
 @media only screen and (max-width: 529px){device mobile{display:block}}
+.pure-form button{display:inline-block;zoom:1;line-height:normal;white-space:nowrap;vertical-align:middle;text-align:center;cursor:pointer;-webkit-user-drag:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-size:100%;padding:.5em 1em;text-decoration:none;border-radius:2px;font-weight:100;letter-spacing:.01em;border:0}.pure-form button:hover,.pure-form button:focus{filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.1)));background-image:-webkit-linear-gradient(transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1));background-image:-moz-linear-gradient(top, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.1));background-image:-o-linear-gradient(transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1));background-image:linear-gradient(transparent, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.1))}
 *{box-sizing:border-box;margin:0;padding:0}
 html{height:100%;width:100%;overflow:hidden}
 body{font-family:'Lato',tahoma;background:#da3704;color:#fff;width:100%}
 a{color:#fff;text-decoration:initial;font-weight:bold}
 h1{font-weight:initial}
+h2{margin-bottom:5px;text-align:center}
 .overlay{display:none}
 header{display:none;background:#202020;padding:10px;height:60px}@media only screen and (max-width: 529px){header{display:block}}header .menu-trigger{margin-right:10px}header .menu-trigger:before{content:"\f0c9";font-family:"FontAwesome"}
-main{float:right;width:80%;height:100%;overflow:auto;padding:10px}@media only screen and (max-width: 529px){main{padding:5px;width:100%}}
-menu{width:20%;height:100%;float:left;background:#202020;border-right:1px solid #202020;font-family:Yanone Kaffeesatz, sans-serif;font-size:20px}@media only screen and (max-width: 529px){menu{width:100%;display:none;background:#000}}menu .category{height:12.5%;display:block;color:rgba(255,255,255,0.75);border-top:1px solid rgba(255,255,255,0.1);position:relative;padding-top:10px;padding-left:25px}@media only screen and (max-width: 529px){menu .category{height:60px}}menu .category:hover{color:#fd997a}
-menu a.category:hover:before{position:absolute;top:0;left:0;content:"";width:5px;background:#da3704;height:100%}
-menu input{width:100%}
-@media only screen and (max-width: 529px){menu .brand{display:none}}
-.popular-frame .recent{float:left;width:100%;margin-bottom:10px}.popular-frame .recent .tab{float:left;margin-top:5px;width:33.33%;padding:2px}.popular-frame .recent .tab *,.popular-frame .recent .tab a{color:rgba(32,32,32,0.5)}
+header .logo{font-family:Bangers, cursive;}
+main{float:right;width:80%;height:100%;overflow:auto}@media only screen and (max-width: 529px){main{width:100%;padding-bottom:60px}}
+menu{width:20%;height:100%;float:left;background:#202020;border-right:1px solid #202020;font-family:Yanone Kaffeesatz, sans-serif;font-size:20px}@media only screen and (max-width: 529px){menu{width:100%;display:none;background:#000}}menu .category{height:12.5%;display:block;color:rgba(255,255,255,0.75);border-top:1px solid rgba(255,255,255,0.1);position:relative;padding-top:10px;padding-left:25px}@media only screen and (max-width: 529px){menu .category{height:60px}}menu .category:hover{color:#fd997a}menu .category:hover:before{position:absolute;top:0;left:0;content:"";width:5px;background:#da3704;height:100%}
+menu .category.logo{font-family:Bangers, cursive;}@media only screen and (max-width: 529px){menu .category.logo{display:none}}
+.popular-frame .recent{float:left;width:100%;margin-bottom:10px}.popular-frame .recent .tab{float:left;width:33.33%;padding:2px}.popular-frame .recent .tab *,.popular-frame .recent .tab a{color:rgba(32,32,32,0.5)}
 @media only screen and (max-width: 529px){.popular-frame .recent .tab{width:100%}}.popular-frame .recent .tab .inner{background:#fff;overflow:auto;-webkit-box-shadow:2px 2px 20px -1px rgba(0,0,0,0.35);-moz-box-shadow:2px 2px 20px -1px rgba(0,0,0,0.35);box-shadow:2px 2px 20px -1px rgba(0,0,0,0.35)}.popular-frame .recent .tab .inner .thumb{width:30%;float:left}.popular-frame .recent .tab .inner .thumb img{width:100%}
 .popular-frame .recent .tab .inner .desc{width:70%;float:left;padding-left:10px;padding-top:15px}.popular-frame .recent .tab .inner .desc .artist,.popular-frame .recent .tab .inner .desc .song{text-transform:capitalize}
 .popular-frame .thumbnails{float:left;width:100%;overflow:auto}.popular-frame .thumbnails .artist{margin-top:5px;float:left;width:33.33%;height:33.33%;padding:1px;position:relative;overflow:hidden}@media only screen and (max-width: 529px){.popular-frame .thumbnails .artist{width:50%;height:140px}}.popular-frame .thumbnails .artist img{width:100%}
@@ -435,3 +437,5 @@ menu input{width:100%}
 .popular-frame .thumbnails .artist:hover:before{content:"+";font-size:100px;position:absolute;width:100%;text-align:center;line-height:1.8}@media only screen and (max-width: 529px){.popular-frame .thumbnails .artist:hover:before{line-height:1.2}}
 .artist-frame img{width:300px}
 .tab-frame h1{text-transform:capitalize}
+search form{position:relative}search form input{font-size:20px;padding:15px;padding-left:35px;color:#fff;border:0;border-radius:0;background:#761e02}search form input:hover,search form input:focus{outline:-webkit-focus-ring-color auto 5px;outline-color:rgba(255,255,255,0.6)}
+search form .search-icon{position:absolute;top:18px;left:10px}search form .search-icon:before{content:"\f002";font-family:"FontAwesome"}
