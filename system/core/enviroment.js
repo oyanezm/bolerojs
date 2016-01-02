@@ -21,11 +21,11 @@ define(function(){
 
   }
 
-  Statement.prototype.is_dev = function(){
+  Enviroment.prototype.is_dev = function(){
     return this.state.dev == true;
   }
 
-  Statement.prototype.is_live = function(){
+  Enviroment.prototype.is_live = function(){
     return this.state.live == true;
   }
 
