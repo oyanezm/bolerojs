@@ -4,14 +4,18 @@ define([
     "system/core/menu",
     "system/core/controller",
     "system/core/overlay",
-    "system/core/widget"
+    "system/core/widget",
+    "system/core/static",
+    "system/core/enviroment"
 ],function(
     Route,
     Ajax,
     Menu,
     Controller,
     Overlay,
-    Widget
+    Widget,
+    Static,
+    Enviroment
 ){
 
     /**
@@ -19,7 +23,7 @@ define([
      **/
     Framework = function(routes){
 
-        this.routes = routes;
+      this.routes = routes;
 
     }
 
@@ -28,17 +32,21 @@ define([
      **/
     Framework.prototype.run = function(){
 
-        var route = Route.get_current();
-        var controller = new Controller(route);
+      window.Enviroment = new Enviroment();
 
-        controller.run();
+      Static.load();
 
-        Ajax.bind();
-        Menu.bind();
+      var route = Route.get_current();
+      var controller = new Controller(route);
 
-        Widget.initialize();
+      controller.run();
 
-        Overlay().fadeOut();
+      Ajax.bind();
+      Menu.bind();
+
+      Widget.initialize();
+
+      Overlay().fadeOut();
 
     }
 

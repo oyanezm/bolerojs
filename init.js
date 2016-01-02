@@ -24,6 +24,7 @@ requirejs.config({
  * Initialize RequireJs
  **/
 requirejs([
+
   // CORE
   "system/core/framework",
   "system/core/view",
