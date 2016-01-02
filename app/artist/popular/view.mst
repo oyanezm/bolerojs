@@ -1,7 +1,7 @@
 
 <search widget="artist.tab.search"></search>
 
-<div class="popular-frame">
+<div class="popular-frame content">
 
   <div class="recent">
     <h2>Subidas Recientemente</h2>

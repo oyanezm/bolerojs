@@ -1,4 +1,4 @@
-<div class="tab-frame">
+<div class="tab-frame content">
   <h1> {{ tab.artist.name }} - {{ tab.title }} </h1>
   <br/>
 

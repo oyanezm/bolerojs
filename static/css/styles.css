@@ -420,8 +420,9 @@ html{height:100%;width:100%;overflow:hidden}
 body{font-family:'Lato',tahoma;background:#da3704;color:#fff;width:100%}
 a{color:#fff;text-decoration:initial;font-weight:bold}
 h1{font-weight:initial}
-h2{margin-bottom:5px;text-align:center}
+h2{margin-bottom:5px}
 .overlay{display:none}
+.content{padding:5px}@media only screen and (max-width: 529px){.content{padding:2px}}
 header{display:none;background:#202020;padding:10px;height:60px}@media only screen and (max-width: 529px){header{display:block}}header .menu-trigger{margin-right:10px}header .menu-trigger:before{content:"\f0c9";font-family:"FontAwesome"}
 header .logo{font-family:Bangers, cursive;}
 main{float:right;width:80%;height:100%;overflow:auto}@media only screen and (max-width: 529px){main{width:100%;padding-bottom:60px}}
