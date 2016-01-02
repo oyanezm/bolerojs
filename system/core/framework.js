@@ -3,19 +3,15 @@ define([
     "system/core/ajax",
     "system/core/menu",
     "system/core/controller",
-    "system/core/overlay",
     "system/core/widget",
-    "system/core/static",
-    "system/core/enviroment"
+    "system/core/static"
 ],function(
     Route,
     Ajax,
     Menu,
     Controller,
-    Overlay,
     Widget,
-    Static,
-    Enviroment
+    Static
 ){
 
     /**
@@ -32,8 +28,6 @@ define([
      **/
     Framework.prototype.run = function(){
 
-      window.Enviroment = new Enviroment();
-
       Static.load();
 
       var route = Route.get_current();
@@ -45,8 +39,6 @@ define([
       Menu.bind();
 
       Widget.initialize();
-
-      Overlay().fadeOut();
 
     }
 

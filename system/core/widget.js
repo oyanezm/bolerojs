@@ -1,8 +1,4 @@
-define([
-    "system/core/spinner"
-],function(
-    Spinner
-){
+define(function(){
 
     /**
      * Constructor
@@ -29,9 +25,7 @@ define([
             var dom = $(this);
             var module = dom.attr("widget");
             var widget = new Widget(module,dom);
-            var spinner = new Spinner();
 
-            spinner.attach(dom);
             widget.run();
 
         });

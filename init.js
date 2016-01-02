@@ -9,7 +9,7 @@ requirejs.config({
 
   paths: {
     "mustache": "system/lib/mustache",
-    "jquery": "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min"
+    "jquery": "system/lib/jquery-1.11.3.min"
   },
 
   shim: {
@@ -36,7 +36,14 @@ requirejs([
   "app/blog/route",
 
   "mustache",
-  "jquery"
+  "jquery",
+
+  // Controller
+  "app/header/controller",
+  "app/menu/controller",
+  "app/artist/controller",
+  "app/artist/tab/controller",
+  "app/artist/popular/controller"
 ],
 function(
 

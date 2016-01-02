@@ -1,6 +1,22 @@
+/** BODY **/
 body{
-  background:#DA3704;
+  top:0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
+
+/** Overlay **/
+.overlay{
+  position:absolute;
+  background:#DA3704;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+/** Loader **/
 .loader {
   margin: 60px auto;
   font-size: 10px;

@@ -9,10 +9,7 @@ define([
    **/
   Static.load = function(){
 
-
-    var version = "0.0.0.0.0";
-
-    var css_compiled = "static/css/styles.css?" + version;
+    var css_compiled = "static/css/styles.css?version=" + Enviroment.version;
     var css_mods = [
       "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     ];
@@ -20,7 +17,6 @@ define([
     var less_mods = [
       "static/less/styles.less"
     ];
-
 
     var dev = Enviroment.is_dev();
     if( dev )   Static.less(less_mods);
