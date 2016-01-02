@@ -1,46 +1,46 @@
 define([
-    "system/core/route",
-    "system/core/ajax",
-    "system/core/menu",
-    "system/core/controller",
-    "system/core/widget",
-    "system/core/static"
+  "system/core/route",
+  "system/core/ajax",
+  "system/core/menu",
+  "system/core/controller",
+  "system/core/widget",
+  "system/core/static"
 ],function(
-    Route,
-    Ajax,
-    Menu,
-    Controller,
-    Widget,
-    Static
+  Route,
+  Ajax,
+  Menu,
+  Controller,
+  Widget,
+  Static
 ){
 
-    /**
-     * Constructor
-     **/
-    Framework = function(routes){
+  /**
+   * Constructor
+   **/
+  Framework = function(routes){
 
-      this.routes = routes;
+    this.routes = routes;
 
-    }
+  }
 
-    /**
-     * Initialize Framework
-     **/
-    Framework.prototype.run = function(){
+  /**
+   * Initialize Framework
+   **/
+  Framework.prototype.run = function(){
 
-      Static.load();
+    Static.load();
 
-      var route = Route.get_current();
-      var controller = new Controller(route);
+    var route = Route.get_current();
+    var controller = new Controller(route);
 
-      controller.run();
+    controller.run();
 
-      Ajax.bind();
-      Menu.bind();
+    Ajax.bind();
+    Menu.bind();
 
-      Widget.initialize();
+    Widget.initialize();
 
-    }
+  }
 
-    return Framework;
+  return Framework;
 });

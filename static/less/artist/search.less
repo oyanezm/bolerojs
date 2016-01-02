@@ -1,0 +1,24 @@
+search form{
+  position:relative;
+  input{
+    .f20;
+    .s15-inner;
+    padding-left:35px;
+    color:@color-two;
+    border:0px;
+    border-radius:0px;
+    background:@color-four-dark;
+    &:hover,&:focus{
+      outline: -webkit-focus-ring-color auto 5px;
+      outline-color: fade(@color-two,60);
+    }
+  }
+  .search-icon{
+    position:absolute;
+    top: 18px;
+    left: 10px;
+    &:before{
+      .icon("\f002");
+    }
+  }
+}

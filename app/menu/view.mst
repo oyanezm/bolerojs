@@ -1,5 +1,5 @@
-  <a class="category">
-    ACOR.DE TABS<br/><br/>
+  <a class="category logo">
+    tablatu
   </a>
 
   {{ #categories }}

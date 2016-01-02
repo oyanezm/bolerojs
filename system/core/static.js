@@ -32,7 +32,8 @@ define([
    **/
   Static.less = function(modules){
 
-    var link,less;
+    var link;
+    var less = require("system/lib/less");
 
     modules.forEach(function(module){
       link = document.createElement( "link" );
@@ -40,11 +41,10 @@ define([
       link.type = "text/css";
       link.rel = "stylesheet/less";
       document.getElementsByTagName( "head" )[0].appendChild( link );
+      less.sheets.push(link);
     });
 
-    less = require("system/lib/less");
-    less.registerStylesheetsImmediately();
-    less.watch();
+    less.refresh();
 
   }
 

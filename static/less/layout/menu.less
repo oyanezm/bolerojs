@@ -24,22 +24,20 @@ menu{
     }
     &:hover{
       color:lighten(@color-four,30);
+      &:before{
+        position:absolute;
+        top:0px;
+        left:0px;
+        content:"";
+        width:5px;
+        background:@color-four;
+        .h100;
+      }
     }
-  }
-  a.category:hover:before{
-    position:absolute;
-    top:0px;
-    left:0px;
-    content:"";
-    width:5px;
-    background:@color-four;
-    .h100;
-  }
-  input{
-    width:100%;
-  }
-  .brand{
-    .hidden-mobile;
+    &.logo{
+      .hidden-mobile;
+      font-family:@font-three;
+    }
   }
 }
 

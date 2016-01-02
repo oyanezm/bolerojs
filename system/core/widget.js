@@ -15,20 +15,28 @@ define(function(){
 
     /**
      * Initialize Widgets
+     * @param jQuery|undefined {container}
      **/
-    Widget.initialize = function(){
+    Widget.initialize = function(container){
 
-        var widgets = $("[widget]");
+      var widgets;
 
-        widgets.each(function(){
+      // Load from container or load all
+      if( typeof(container) == "undefined")
+        widgets = $("[widget]");
+      else
+        widgets = container.find("[widget]");
 
-            var dom = $(this);
-            var module = dom.attr("widget");
-            var widget = new Widget(module,dom);
 
-            widget.run();
+      widgets.each(function(){
 
-        });
+        var dom = $(this);
+        var module = dom.attr("widget");
+        var widget = new Widget(module,dom);
+
+        widget.run();
+
+      });
 
     }
 

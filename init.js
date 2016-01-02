@@ -43,6 +43,7 @@ requirejs([
   "app/menu/controller",
   "app/artist/controller",
   "app/artist/tab/controller",
+  "app/artist/tab/search/controller",
   "app/artist/popular/controller"
 ],
 function(

@@ -1,8 +1,10 @@
 define([
-  "system/core/route"
+  "system/core/route",
+  "system/core/widget"
 ],
 function(
-  Route
+  Route,
+  Widget
 ){
 
   var View = function(){};
@@ -31,8 +33,13 @@ function(
       if( typeof(dom) !== "undefined" ){
         dom.html(html);
       }else{
-        $("main").html(html);
-        $("main").fadeIn();
+        var container;
+
+        container = $("main");
+        container.html(html);
+        container.fadeIn();
+
+        Widget.initialize(container);
       }
 
       Route.replace();

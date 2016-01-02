@@ -1,1 +1,4 @@
-<h1> Busar Tab</h1>
+<form>
+  <input name="keyword" placeholder="Artista / Cancion"></input>
+  <span class="search-icon"></span>
+</input>

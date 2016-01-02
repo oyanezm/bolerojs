@@ -2384,20 +2384,28 @@ define('system/core/widget',[],function(){
 
     /**
      * Initialize Widgets
+     * @param jQuery|undefined {container}
      **/
-    Widget.initialize = function(){
+    Widget.initialize = function(container){
 
-        var widgets = $("[widget]");
+      var widgets;
 
-        widgets.each(function(){
+      // Load from container or load all
+      if( typeof(container) == "undefined")
+        widgets = $("[widget]");
+      else
+        widgets = container.find("[widget]");
 
-            var dom = $(this);
-            var module = dom.attr("widget");
-            var widget = new Widget(module,dom);
 
-            widget.run();
+      widgets.each(function(){
 
-        });
+        var dom = $(this);
+        var module = dom.attr("widget");
+        var widget = new Widget(module,dom);
+
+        widget.run();
+
+      });
 
     }
 
@@ -12684,10 +12692,7 @@ define('system/core/static',[
    **/
   Static.load = function(){
 
-
-    var version = "0.0.0.0.0";
-
-    var css_compiled = "static/css/styles.css?" + version;
+    var css_compiled = "static/css/styles.css?version=" + Enviroment.version;
     var css_mods = [
       "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     ];
@@ -12695,7 +12700,6 @@ define('system/core/static',[
     var less_mods = [
       "static/less/styles.less"
     ];
-
 
     var dev = Enviroment.is_dev();
     if( dev )   Static.less(less_mods);
@@ -12711,7 +12715,8 @@ define('system/core/static',[
    **/
   Static.less = function(modules){
 
-    var link,less;
+    var link;
+    var less = require("system/lib/less");
 
     modules.forEach(function(module){
       link = document.createElement( "link" );
@@ -12719,11 +12724,10 @@ define('system/core/static',[
       link.type = "text/css";
       link.rel = "stylesheet/less";
       document.getElementsByTagName( "head" )[0].appendChild( link );
+      less.sheets.push(link);
     });
 
-    less = require("system/lib/less");
-    less.registerStylesheetsImmediately();
-    less.watch();
+    less.refresh();
 
   }
 
@@ -12750,57 +12754,59 @@ define('system/core/static',[
 })
 ;
 define('system/core/framework',[
-    "system/core/route",
-    "system/core/ajax",
-    "system/core/menu",
-    "system/core/controller",
-    "system/core/widget",
-    "system/core/static"
+  "system/core/route",
+  "system/core/ajax",
+  "system/core/menu",
+  "system/core/controller",
+  "system/core/widget",
+  "system/core/static"
 ],function(
-    Route,
-    Ajax,
-    Menu,
-    Controller,
-    Widget,
-    Static
+  Route,
+  Ajax,
+  Menu,
+  Controller,
+  Widget,
+  Static
 ){
 
-    /**
-     * Constructor
-     **/
-    Framework = function(routes){
+  /**
+   * Constructor
+   **/
+  Framework = function(routes){
 
-      this.routes = routes;
+    this.routes = routes;
 
-    }
+  }
 
-    /**
-     * Initialize Framework
-     **/
-    Framework.prototype.run = function(){
+  /**
+   * Initialize Framework
+   **/
+  Framework.prototype.run = function(){
 
-      Static.load();
+    Static.load();
 
-      var route = Route.get_current();
-      var controller = new Controller(route);
+    var route = Route.get_current();
+    var controller = new Controller(route);
 
-      controller.run();
+    controller.run();
 
-      Ajax.bind();
-      Menu.bind();
+    Ajax.bind();
+    Menu.bind();
 
-      Widget.initialize();
+    Widget.initialize();
 
-    }
+  }
 
-    return Framework;
+  return Framework;
 });
 
 define('system/core/view',[
-  "system/core/route"
+  "system/core/route",
+  "system/core/widget"
 ],
 function(
-  Route
+  Route,
+  Widget
 ){
 
   var View = function(){};
@@ -12829,8 +12835,13 @@ function(
       if( typeof(dom) !== "undefined" ){
         dom.html(html);
       }else{
-        $("main").html(html);
-        $("main").fadeIn();
+        var container;
+
+        container = $("main");
+        container.html(html);
+        container.fadeIn();
+
+        Widget.initialize(container);
       }
 
       Route.replace();
@@ -13800,6 +13811,22 @@ function(
   return Controller;
 })
 ;
+define('app/artist/tab/search/controller',[],function(){
+
+  var Controller = function(widget){
+
+    var context = {};
+
+    View.render(
+      widget.module,
+      context,
+      widget.dom
+    );
+  }
+
+  return Controller;
+})
+;
 define('app/artist/popular/controller',[
   "app/artist/model",
   "app/artist/tab/model"
@@ -13867,6 +13894,7 @@ requirejs([
   "app/menu/controller",
   "app/artist/controller",
   "app/artist/tab/controller",
+  "app/artist/tab/search/controller",
   "app/artist/popular/controller"
 ],
 function(
