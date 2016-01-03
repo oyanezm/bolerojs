@@ -1,4 +1,5 @@
 <form>
+  <span class="search-title">Buscar</span>
   <input name="keyword" placeholder="Artista / Cancion"></input>
   <span class="search-icon"></span>
 </input>

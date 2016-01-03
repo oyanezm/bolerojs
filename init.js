@@ -35,6 +35,7 @@ requirejs([
   "app/artist/popular/route",
   "app/blog/route",
 
+  // Lib
   "mustache",
   "jquery",
 
