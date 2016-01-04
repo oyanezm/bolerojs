@@ -3,5 +3,9 @@ RewriteEngine On
 # Avoid redirect on this files
 RewriteCond %{REQUEST_URI} !^/$
 RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|css|less|js|mst)$
+
+# Route redirect
 RewriteRule ^artista(.*)$ / [L]
+RewriteRule ^tab(.*)$ / [L]
+RewriteRule ^buscar(.*)$ / [L]
 

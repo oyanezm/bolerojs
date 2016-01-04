@@ -1,5 +1,5 @@
 define([
-  "app/artist/tab/model"
+  "app/tab/model"
 ],
 function(
   Tab
@@ -14,7 +14,7 @@ function(
       tab: Tab.get(id)
     }
 
-    View.render("artist.tab",context);
+    View.render("tab",context);
   }
 
   return Controller;

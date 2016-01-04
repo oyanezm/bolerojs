@@ -45,19 +45,6 @@
   var Preload = function(){}
 
   /**
-   * Preload Base Url
-   **/
-  Preload.baseUrl = function(){
-    var link;
-
-    link = document.createElement('base');
-    link.href = "http://" + document.location.host;
-
-    document.getElementsByTagName('head')[0].appendChild(link);
-  }
-
-
-  /**
    * Preload Css
    **/
   Preload.css = function(){
@@ -93,7 +80,6 @@
   window.Enviroment = new Env();
 
   // Preload
-  Preload.baseUrl();
   Preload.css();
   Preload.requireJs();
 

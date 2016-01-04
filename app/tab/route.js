@@ -1,12 +1,12 @@
 define(["system/core/route"],function(Route){
 
   return new Route({
-    url: "artista/tablatura/([0-9]+)",
-    name: "artist.tab",
-    controller: "artist.tab",
+    url: "tablatura/([0-9]+)",
+    name: "tab",
+    controller: "tab",
     title: "Tablaturas",
     callback : function(args){
-      return "artista/tablatura/" + args[0];
+      return "tablatura/" + args[0];
     }
   });
 

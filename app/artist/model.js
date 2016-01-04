@@ -6,16 +6,46 @@ define(function(){
 
     return {
       id : 1,
-      name: "Nano Stern",
-      img: "http://www.twitsessions.com/wp-content/uploads/2011/05/nanostern.jpg",
+      name: "Joe Vasconcellos",
+      img : "http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg",
+      followers: 241,
+      total: 200,
       tabs: [
         {
           id: 1,
-          name: "Vapor"
+          name: "La Funa",
+          rating: 3.8,
+          fav: 134
         },
         {
           id: 2,
-          name: "El Vino"
+          name: "Las Seis",
+          rating: 4.2,
+          fav: 34
+        },
+        {
+          id: 3,
+          name: "Hijo del sol luminoso",
+          rating: 4.6,
+          fav: 322,
+        },
+        {
+          id: 4,
+          name: "Toque",
+          rating: 4.9,
+          fav: 43
+        },
+        {
+          id: 5,
+          name: "Sed de Gol",
+          rating: 2.6,
+          fav: 45
+        },
+        {
+          id: 6,
+          name: "ciudad traicionera",
+          rating: 1.3,
+          fav: 54
         }
       ]
     };

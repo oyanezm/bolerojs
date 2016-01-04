@@ -1,0 +1,83 @@
+<div class="search-frame content">
+
+  <div class="result">
+    <h2>Resultados para <b class="break-mobile">{{ keyword }}</b></h2>
+
+    {{ #tabs }}
+      <div class="tab">
+
+        <!-- Image -->
+        <a class="image" route="artist" args="[{{ artist.id }}]">
+          <img src="{{ artist.img }}" />
+        </a>
+
+        <!-- Description -->
+        <div class="desc">
+          <a route="tab" class="capitalize" args="[{{ id }}]">
+            {{ name }}
+          </a><br/>
+          <a route="artist" class="capitalize" args="[{{ id }}]">
+            {{ artist.name }}
+          </a><br/>
+          subido por <a>{{ user.name }}</a><br/>
+          <i class="rating-small"> {{ rating }}</i>
+
+          {{ #comments }}
+            <i class="fa fa-commenting" title="comentarios"></i>
+          {{ /comments }}
+
+          {{ #video }}
+            <i class="fa fa-youtube-play" title="video explicativo"></i>
+          {{ /video }}
+
+        </div>
+
+        <!-- Rating -->
+        <div class="rating">
+          {{ rating }}
+        </div>
+      </div>
+    {{ /tabs }}
+  </div>
+
+  <div class="related">
+    <h2>Tabs Relacionadas </h2>
+
+    {{ #related }}
+      <div class="tab">
+
+        <!-- Image -->
+        <a class="image" route="artist" args="[{{ artist.id }}]">
+          <img src="{{ artist.img }}" />
+        </a>
+
+        <!-- Description -->
+        <div class="desc">
+          <a route="tab" class="capitalize" args="[{{ id }}]">
+            {{ name }}
+          </a><br/>
+          <a route="artist" class="capitalize" args="[{{ id }}]">
+            {{ artist.name }}
+          </a><br/>
+          subido por <a>{{ user.name }}</a><br/>
+          <i class="rating-small"> {{ rating }}</i>
+
+          {{ #comments }}
+            <i class="fa fa-commenting" title="comentarios"></i>
+          {{ /comments }}
+
+          {{ #video }}
+            <i class="fa fa-youtube-play" title="video explicativo"></i>
+          {{ /video }}
+
+        </div>
+
+        <!-- Rating -->
+        <div class="rating">
+          {{ rating }}
+        </div>
+      </div>
+    {{ /related }}
+  </div>
+
+</div>

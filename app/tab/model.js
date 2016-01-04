@@ -9,7 +9,7 @@ define(function(){
 
     var tab = {
       id : 134,
-      title: "El vino y el destino",
+      name: "El vino y el destino",
       content: "" +
         "Quisiera tomar veneno\n" +
         "dice la vieja canción\n" +
@@ -59,38 +59,58 @@ define(function(){
     return [
       {
         id: 1,
-        title : "el viejo comunista",
+        name : "el viejo comunista",
+        video: "youtube",
+        rating: 5.0,
+        comments: 2,
         user:{
           name:"oyanezm"
         },
         artist:{
+          id: 1,
           name:"manuel garcia",
           img:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSEBwV2v5465pMlRETzhzhi4OFTcNgE91huz8Pz4jpEHHgfSKeOuw"
         }
       },
       {
         id: 2,
-        title : "La funa",
+        name : "La funa",
+        video : "yutube",
+        rating: 4.0,
+        comments: 2,
         user:{
           name:"oyanezm"
         },
         artist:{
+          id: 2,
           name:"joe vasconcellos",
           img:"http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
         }
       },
       {
         id: 3,
-        title : "el gavilan",
+        name : "el gavilan",
+        video: "",
+        rating: 2.0,
+        comments: 3,
         user:{
           name:"oyanezm"
         },
         artist:{
+          id: 3,
           name:"violeta parra",
           img:"http://revistaterminal.cl/web/wp-content/uploads/2012/02/violeta.jpg"
         }
       }
     ];
+  }
+
+  /**
+   * Search tabs based on keyword
+   * @param string {keyword}
+   **/
+  Tab.search = function(keyword){
+    return Tab.get_recent();
   }
 
   return Tab;

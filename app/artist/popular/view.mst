@@ -1,6 +1,4 @@
 
-<search widget="artist.tab.search"></search>
-
 <div class="popular-frame content">
 
   <div class="recent">
@@ -8,13 +6,13 @@
     {{ #recent }}
       <div class="tab">
         <div class="inner">
-          <a class="thumb" href="" route="artist.tab" args="[{{ id }}]">
+          <a class="thumb" href="" route="tab" args="[{{ id }}]">
             <img src="{{ artist.img }}" />
           </a>
           <div class="desc">
 
-            <a class="artist" route="artist.tab" args="[{{ id }}]">
-              {{ title }}
+            <a class="artist" route="tab" args="[{{ id }}]">
+              {{ name }}
             </a><br/>
 
             <a class="song" route="artist" args="[{{ artist.id }}]">
@@ -33,13 +31,13 @@
     {{ #recent }}
       <div class="tab">
         <div class="inner">
-          <a class="thumb" href="" route="artist.tab" args="[{{ id }}]">
+          <a class="thumb" href="" route="tab" args="[{{ id }}]">
             <img src="{{ artist.img }}" />
           </a>
           <div class="desc">
 
-            <a class="artist" route="artist.tab" args="[{{ id }}]">
-              {{ title }}
+            <a class="artist" route="tab" args="[{{ id }}]">
+              {{ name }}
             </a><br/>
 
             <a class="song" route="artist" args="[{{ artist.id }}]">
@@ -69,5 +67,4 @@
     {{ /artists }}
   </div>
 
-  <a route="blog" class="w100" >Go to Blog</a>
 </div>

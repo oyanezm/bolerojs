@@ -1,6 +1,6 @@
 define([
   "app/artist/model",
-  "app/artist/tab/model"
+  "app/tab/model"
 ],function(
   Artist,
   Tab

@@ -1,4 +1,0 @@
-Hi this is <b>{{ user.name }}</b> <br/>
-{{ user.name }}: {{ user.signature }} <br/>
-Powered by Mustache!<br/>
-<a route="popular">back to home</a>

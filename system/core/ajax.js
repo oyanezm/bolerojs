@@ -41,12 +41,6 @@ function(
         controller = new Controller(route);
 
         controller.run();
-
-        window.history.pushState(
-          route.name,
-          route.title,
-          requirejs.toUrl(url)
-        );
       });
 
     });

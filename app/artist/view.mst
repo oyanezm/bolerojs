@@ -1,10 +1,34 @@
 <div class="artist-frame content">
-  <h1> Arg ID: {{ id }}</h1>
-  <h1> {{ artist.name }}</h1>
-  <img src="{{ artist.img }}" />
 
-  <h2> Tablaturas</h2>
-  {{ #artist.tabs}}
-    <a route="artist.tab" args="[1]">{{ artist.name }} - {{ name }}</a><br/>
-  {{ /artist.tabs }}
+  <div class="artist-sheet">
+    <h2>
+      {{ artist.name }}
+    </h2>
+    <a>Seguir</a><br/>
+    Tablaturas: {{ artist.total }}<br/>
+    Seguidores: {{ artist.followers }}<br/>
+    <br/>
+    <img src="{{ artist.img }}" />
+  </div>
+
+  <div class="tabs">
+    <h2> Tablaturas</h2>
+    {{ #artist.tabs}}
+      <div class="tab">
+        <div class="desc">
+          <a route="tab" args="[1]" class="capitalize">
+            {{ name }}
+          </a><br/>
+          <i class="fa fa-commenting"></i>
+          <i class="fa fa-youtube-play"></i>
+        </div>
+        <div class="favorite">
+          {{ fav }}
+        </div>
+        <div class="rating">
+          {{{ rating }}}
+        </div>
+      </div>
+    {{ /artist.tabs }}
+  </div>
 </div>

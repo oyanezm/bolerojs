@@ -1,4 +1,5 @@
-define(function(){
+define([],function(
+){
 
   /**
    * Constructor
@@ -17,10 +18,35 @@ define(function(){
     var args = this.route.args;
 
     var path = "app/" + module + "/controller";
+    var url = __Route.url(
+      this.route.name,
+      this.route.args
+    );
+
+    window.history.pushState(
+      this.route.name,
+      this.route.title,
+      requirejs.toUrl(url)
+    );
 
     require([path],function(controller){
       controller(args);
     });
+
+  }
+
+  /**
+   * Controller run wrapper
+   * @param string {routename}
+   **/
+  Controller.dispatch = function(routename,args){
+    var route,c;
+
+    route = __Route.get(routename);
+    route.args = args;
+
+    c = new __Controller(route);
+    c.run();
 
   }
 

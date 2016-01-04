@@ -3,12 +3,24 @@
   font-family: "FontAwesome";
 }
 
+.break-mobile{
+   @media @mobile{
+     .block;
+   }
+}
+
 .hidden{
   display:none;
 }
 .hidden-mobile{
   @media @mobile{
     .hidden;
+  }
+}
+.hidden-desktop{
+  .hidden;
+  @media @mobile{
+    .iblock;
   }
 }
 
@@ -44,4 +56,20 @@
 }
 .relative{
   position:relative;
+}
+
+.overflow{
+  overflow:auto;
+}
+.overfidden{
+  overflow:hidden;
+}
+.capitalize{
+  text-transform:capitalize;
+}
+.block{
+  display:block;
+}
+.iblock{
+  display:inline-block;
 }

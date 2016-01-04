@@ -28,10 +28,13 @@ define([
    **/
   Framework.prototype.run = function(){
 
+    window.__Controller = Controller;
+    window.__Route = Route;
+
     Static.load();
 
-    var route = Route.get_current();
-    var controller = new Controller(route);
+    var route = __Route.get_current();
+    var controller = new __Controller(route);
 
     controller.run();
 

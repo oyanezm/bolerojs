@@ -1,5 +1,58 @@
 .artist-frame{
-  img{
-    width:300px;
+
+  .artist-sheet,.tabs{
+    .w50;
+    .left;
+    padding:0px 10px;
+    @media @mobile{
+      .w100;
+      padding:0px;
+    }
+  }
+
+  .artist-sheet{
+    img{
+      .w100;
+    }
+  }
+
+  .tabs{
+    .tab{
+      .w100;
+      .bs5;
+      .box-shadow;
+      .overflow;
+      .s5-inner;
+      padding-left:10px;
+      *{color:@color-one-fade}
+      background:@color-two;
+      .desc{
+        .left;
+        line-height:1.5;
+      }
+      .rating,.favorite{
+        .right;
+        line-height:3;
+      }
+      .rating{
+        width:60px;
+        text-align:center;
+        color:@color-one-fade;
+        background:@color-three;
+        &:before{
+          .icon("\f005");
+        }
+      }
+      .favorite{
+        .ls10-inner;
+        text-align:left;
+        width:65px;
+        color:@color-two;
+        background:@color-five;
+        &:before{
+          .icon("\f004");
+        }
+      }
+    }
   }
 }

@@ -2,10 +2,19 @@
 
   <head>
 
+    <script>
+      (function(){
+        var link;
+        link = document.createElement('base');
+        link.href = "http://" + document.location.host;
+        document.getElementsByTagName('head')[0].appendChild(link);
+      })();
+    </script>
+
     <title>Tablatu</title>
 
     <!-- Preload -->
-    <script src="system/core/preload/min.js" type="text/javascript"></script>
+    <script src="system/core/preload/preload.js" type="text/javascript"></script>
 
     <!-- Meta -->
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -26,6 +35,9 @@
     <!-- Menu -->
     <menu widget="menu">
     </menu>
+
+    <!-- Search -->
+    <search widget="tab.search.form"></search>
 
     <!-- Main -->
     <main>

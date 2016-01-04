@@ -2267,7 +2267,8 @@ define('system/core/menu',[
 
 })
 ;
-define('system/core/controller',[],function(){
+define('system/core/controller',[],function(
+){
 
   /**
    * Constructor
@@ -2286,10 +2287,35 @@ define('system/core/controller',[],function(){
     var args = this.route.args;
 
     var path = "app/" + module + "/controller";
+    var url = __Route.url(
+      this.route.name,
+      this.route.args
+    );
+
+    window.history.pushState(
+      this.route.name,
+      this.route.title,
+      requirejs.toUrl(url)
+    );
 
     require([path],function(controller){
       controller(args);
     });
+
+  }
+
+  /**
+   * Controller run wrapper
+   * @param string {routename}
+   **/
+  Controller.dispatch = function(routename,args){
+    var route,c;
+
+    route = __Route.get(routename);
+    route.args = args;
+
+    c = new __Controller(route);
+    c.run();
 
   }
 
@@ -2352,12 +2378,6 @@ function(
         controller = new Controller(route);
 
         controller.run();
-
-        window.history.pushState(
-          route.name,
-          route.title,
-          requirejs.toUrl(url)
-        );
       });
 
     });
@@ -12783,10 +12803,13 @@ define('system/core/framework',[
    **/
   Framework.prototype.run = function(){
 
+    window.__Controller = Controller;
+    window.__Route = Route;
+
     Static.load();
 
-    var route = Route.get_current();
-    var controller = new Controller(route);
+    var route = __Route.get_current();
+    var controller = new __Controller(route);
 
     controller.run();
 
@@ -12853,6 +12876,34 @@ function(
   return View;
 });
 
+define('app/tab/route',["system/core/route"],function(Route){
+
+  return new Route({
+    url: "tablatura/([0-9]+)",
+    name: "tab",
+    controller: "tab",
+    title: "Tablaturas",
+    callback : function(args){
+      return "tablatura/" + args[0];
+    }
+  });
+
+});
+
+define('app/tab/search/route',["system/core/route"],function(Route){
+
+  return new Route({
+    url: "tablatura/buscar/([a-zA-Z0-9 -]+)",
+    name: "tab.search",
+    controller: "tab.search",
+    title: "Tablaturas",
+    callback : function(args){
+      return "tablatura/buscar/" + args[0];
+    }
+  });
+
+});
+
 define('app/artist/route',["system/core/route"],function(Route){
 
   return new Route({
@@ -12867,20 +12918,6 @@ define('app/artist/route',["system/core/route"],function(Route){
 
 });
 
-define('app/artist/tab/route',["system/core/route"],function(Route){
-
-  return new Route({
-    url: "artista/tablatura/([0-9]+)",
-    name: "artist.tab",
-    controller: "artist.tab",
-    title: "Tablaturas",
-    callback : function(args){
-      return "artista/tablatura/" + args[0];
-    }
-  });
-
-});
-
 define('app/artist/popular/route',["system/core/route"],function(Route){
 
   return new Route({
@@ -12888,17 +12925,6 @@ define('app/artist/popular/route',["system/core/route"],function(Route){
     name: "artist.popular",
     controller: "artist.popular",
     title: "Artistas Populares"
-  });
-
-});
-
-define('app/blog/route',["system/core/route"],function(Route){
-
-  return new Route({
-    url: "blog",
-    name: "blog",
-    controller: "blog",
-    title: "Blog Site"
   });
 
 });
@@ -13589,6 +13615,206 @@ define('app/menu/controller',[],function(){
 
 });
 
+define('app/tab/model',[],function(){
+
+  var Tab = function(){}
+
+  /**
+   * Get Single Tab
+   **/
+  Tab.get = function(){
+
+    var tab = {
+      id : 134,
+      name: "El vino y el destino",
+      content: "" +
+        "Quisiera tomar veneno\n" +
+        "dice la vieja canción\n" +
+        "En una copa de vino\n" +
+        "vencer el destino.\n" +
+        "\n" +
+        "Pero yo prefiero el vino\n" +
+        "que es una vieja poción\n" +
+        "que a todos nos vuelve finos\n" +
+        "y nos enseña a cantar\n" +
+        "\n" +
+        "Ahora que canto del vino\n" +
+        "como no voy a nombrar\n" +
+        "a mi tierra y sus caminos...\n" +
+        "yo no los voy a olvidar.\n" +
+        "\n" +
+        "Cerca se quedo muy lejos,\n" +
+        "Lejos lo cerca.\n" +
+        "Yo me vine porque quise,\n" +
+        "Ahora me vuelvo.\n" +
+        "\n" +
+        "Y entremedio están las aguas\n" +
+        "que otra vez voy a cruzar,\n" +
+        "contra el viento y la marea\n" +
+        "de esta pálida ciudad\n" +
+        "que no te deja ni un rato\n" +
+        "que no te quiere soltar...\n" +
+        "\n" +
+        "Yo me vine porque quise,\n" +
+        "Ahora ya vuelvo!",
+
+      artist : {
+        id: 12,
+        name: "nano stern"
+      }
+    };
+
+    tab.content = tab.content.replace(/\n/g , "<br>");
+
+    return tab;
+  }
+
+  /**
+   * Get recent uploaded tabs
+   **/
+  Tab.get_recent = function(limit){
+    return [
+      {
+        id: 1,
+        name : "el viejo comunista",
+        video: "youtube",
+        rating: 5.0,
+        comments: 2,
+        user:{
+          name:"oyanezm"
+        },
+        artist:{
+          id: 1,
+          name:"manuel garcia",
+          img:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSEBwV2v5465pMlRETzhzhi4OFTcNgE91huz8Pz4jpEHHgfSKeOuw"
+        }
+      },
+      {
+        id: 2,
+        name : "La funa",
+        video : "yutube",
+        rating: 4.0,
+        comments: 2,
+        user:{
+          name:"oyanezm"
+        },
+        artist:{
+          id: 2,
+          name:"joe vasconcellos",
+          img:"http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
+        }
+      },
+      {
+        id: 3,
+        name : "el gavilan",
+        video: "",
+        rating: 2.0,
+        comments: 3,
+        user:{
+          name:"oyanezm"
+        },
+        artist:{
+          id: 3,
+          name:"violeta parra",
+          img:"http://revistaterminal.cl/web/wp-content/uploads/2012/02/violeta.jpg"
+        }
+      }
+    ];
+  }
+
+  /**
+   * Search tabs based on keyword
+   * @param string {keyword}
+   **/
+  Tab.search = function(keyword){
+    return Tab.get_recent();
+  }
+
+  return Tab;
+
+})
+;
+define('app/tab/controller',[
+  "app/tab/model"
+],
+function(
+  Tab
+){
+
+  var Controller = function(args){
+
+    var id = args[0];
+
+    var context = {
+      id: id,
+      tab: Tab.get(id)
+    }
+
+    View.render("tab",context);
+  }
+
+  return Controller;
+})
+;
+define('app/tab/search/controller',[
+  "app/tab/model"
+],function(
+  Tab
+){
+
+  var Controller = function(args){
+
+    var keyword,tabs;
+
+    keyword = args.pop();
+    keyword = keyword.replace("-"," ");
+
+    tabs = Tab.search(keyword);
+
+    var context = {
+      tabs: tabs,
+      related: tabs,
+      keyword: keyword
+    };
+
+    View.render(
+      "tab.search",
+      context
+    );
+
+  }
+
+  return Controller;
+})
+;
+define('app/tab/search/form/controller',[],function(){
+
+  var Controller = function(widget){
+
+    var context = {};
+
+    $("search").on("submit","form",function(e){
+      var keyword,args;
+
+      e.preventDefault();
+
+      keyword = $(this).children("[name=keyword]").val();
+      args = [ keyword.replace(" ","-") ];
+
+      __Controller.dispatch("tab.search",args);
+
+    });
+
+    View.render(
+      widget.module,
+      context,
+      widget.dom
+    );
+  }
+
+  return Controller;
+})
+;
 define('app/artist/model',[],function(){
 
   var Artist = function(){}
@@ -13597,16 +13823,46 @@ define('app/artist/model',[],function(){
 
     return {
       id : 1,
-      name: "Nano Stern",
-      img: "http://www.twitsessions.com/wp-content/uploads/2011/05/nanostern.jpg",
+      name: "Joe Vasconcellos",
+      img : "http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg",
+      followers: 241,
+      total: 200,
       tabs: [
         {
           id: 1,
-          name: "Vapor"
+          name: "La Funa",
+          rating: 3.8,
+          fav: 134
         },
         {
           id: 2,
-          name: "El Vino"
+          name: "Las Seis",
+          rating: 4.2,
+          fav: 34
+        },
+        {
+          id: 3,
+          name: "Hijo del sol luminoso",
+          rating: 4.6,
+          fav: 322,
+        },
+        {
+          id: 4,
+          name: "Toque",
+          rating: 4.9,
+          fav: 43
+        },
+        {
+          id: 5,
+          name: "Sed de Gol",
+          rating: 2.6,
+          fav: 45
+        },
+        {
+          id: 6,
+          name: "ciudad traicionera",
+          rating: 1.3,
+          fav: 54
         }
       ]
     };
@@ -13690,146 +13946,9 @@ function(
   return Controller;
 })
 ;
-define('app/artist/tab/model',[],function(){
-
-  var Tab = function(){}
-
-  /**
-   * Get Single Tab
-   **/
-  Tab.get = function(){
-
-    var tab = {
-      id : 134,
-      title: "El vino y el destino",
-      content: "" +
-        "Quisiera tomar veneno\n" +
-        "dice la vieja canción\n" +
-        "En una copa de vino\n" +
-        "vencer el destino.\n" +
-        "\n" +
-        "Pero yo prefiero el vino\n" +
-        "que es una vieja poción\n" +
-        "que a todos nos vuelve finos\n" +
-        "y nos enseña a cantar\n" +
-        "\n" +
-        "Ahora que canto del vino\n" +
-        "como no voy a nombrar\n" +
-        "a mi tierra y sus caminos...\n" +
-        "yo no los voy a olvidar.\n" +
-        "\n" +
-        "Cerca se quedo muy lejos,\n" +
-        "Lejos lo cerca.\n" +
-        "Yo me vine porque quise,\n" +
-        "Ahora me vuelvo.\n" +
-        "\n" +
-        "Y entremedio están las aguas\n" +
-        "que otra vez voy a cruzar,\n" +
-        "contra el viento y la marea\n" +
-        "de esta pálida ciudad\n" +
-        "que no te deja ni un rato\n" +
-        "que no te quiere soltar...\n" +
-        "\n" +
-        "Yo me vine porque quise,\n" +
-        "Ahora ya vuelvo!",
-
-      artist : {
-        id: 12,
-        name: "nano stern"
-      }
-    };
-
-    tab.content = tab.content.replace(/\n/g , "<br>");
-
-    return tab;
-  }
-
-  /**
-   * Get recent uploaded tabs
-   **/
-  Tab.get_recent = function(limit){
-    return [
-      {
-        id: 1,
-        title : "el viejo comunista",
-        user:{
-          name:"oyanezm"
-        },
-        artist:{
-          name:"manuel garcia",
-          img:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSEBwV2v5465pMlRETzhzhi4OFTcNgE91huz8Pz4jpEHHgfSKeOuw"
-        }
-      },
-      {
-        id: 2,
-        title : "La funa",
-        user:{
-          name:"oyanezm"
-        },
-        artist:{
-          name:"joe vasconcellos",
-          img:"http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
-        }
-      },
-      {
-        id: 3,
-        title : "el gavilan",
-        user:{
-          name:"oyanezm"
-        },
-        artist:{
-          name:"violeta parra",
-          img:"http://revistaterminal.cl/web/wp-content/uploads/2012/02/violeta.jpg"
-        }
-      }
-    ];
-  }
-
-  return Tab;
-
-})
-;
-define('app/artist/tab/controller',[
-  "app/artist/tab/model"
-],
-function(
-  Tab
-){
-
-  var Controller = function(args){
-
-    var id = args[0];
-
-    var context = {
-      id: id,
-      tab: Tab.get(id)
-    }
-
-    View.render("artist.tab",context);
-  }
-
-  return Controller;
-})
-;
-define('app/artist/tab/search/controller',[],function(){
-
-  var Controller = function(widget){
-
-    var context = {};
-
-    View.render(
-      widget.module,
-      context,
-      widget.dom
-    );
-  }
-
-  return Controller;
-})
-;
 define('app/artist/popular/controller',[
   "app/artist/model",
-  "app/artist/tab/model"
+  "app/tab/model"
 ],function(
   Artist,
   Tab
@@ -13881,20 +14000,22 @@ requirejs([
   "system/core/view",
 
   // Routes
+  "app/tab/route",
+  "app/tab/search/route",
   "app/artist/route",
-  "app/artist/tab/route",
   "app/artist/popular/route",
-  "app/blog/route",
 
+  // Lib
   "mustache",
   "jquery",
 
   // Controller
   "app/header/controller",
   "app/menu/controller",
+  "app/tab/controller",
+  "app/tab/search/controller",
+  "app/tab/search/form/controller",
   "app/artist/controller",
-  "app/artist/tab/controller",
-  "app/artist/tab/search/controller",
   "app/artist/popular/controller"
 ],
 function(
@@ -13904,10 +14025,10 @@ function(
   View,
 
   // Routes
-  Artist,
   Tab,
+  Tab_Search,
+  Artist,
   Popular,
-  Blog,
 
   Mustache
 ){
@@ -13918,9 +14039,9 @@ function(
 
   var routes = [
     Tab,
+    Tab_Search,
     Artist,
-    Popular,
-    Blog
+    Popular
   ];
 
   f = new Framework(routes);

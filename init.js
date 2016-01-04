@@ -30,10 +30,10 @@ requirejs([
   "system/core/view",
 
   // Routes
+  "app/tab/route",
+  "app/tab/search/route",
   "app/artist/route",
-  "app/artist/tab/route",
   "app/artist/popular/route",
-  "app/blog/route",
 
   // Lib
   "mustache",
@@ -42,9 +42,10 @@ requirejs([
   // Controller
   "app/header/controller",
   "app/menu/controller",
+  "app/tab/controller",
+  "app/tab/search/controller",
+  "app/tab/search/form/controller",
   "app/artist/controller",
-  "app/artist/tab/controller",
-  "app/artist/tab/search/controller",
   "app/artist/popular/controller"
 ],
 function(
@@ -54,10 +55,10 @@ function(
   View,
 
   // Routes
-  Artist,
   Tab,
+  Tab_Search,
+  Artist,
   Popular,
-  Blog,
 
   Mustache
 ){
@@ -68,9 +69,9 @@ function(
 
   var routes = [
     Tab,
+    Tab_Search,
     Artist,
-    Popular,
-    Blog
+    Popular
   ];
 
   f = new Framework(routes);
