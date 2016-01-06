@@ -14,7 +14,7 @@ function(
       tab: Tab.get(id)
     }
 
-    View.render("tab",context);
+    __View.render("tab",context);
   }
 
   return Controller;

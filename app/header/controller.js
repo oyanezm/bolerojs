@@ -6,7 +6,7 @@ define(function(){
     var context = {
     };
 
-    View.render(
+    __View.render(
       widget.module,
       context,
       widget.dom

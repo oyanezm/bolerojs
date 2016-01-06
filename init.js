@@ -28,6 +28,8 @@ requirejs([
   // CORE
   "system/core/framework",
   "system/core/view",
+  "system/core/controller",
+  "system/core/route",
 
   // Routes
   "app/tab/route",
@@ -53,6 +55,8 @@ function(
   // Core
   Framework,
   View,
+  Controller,
+  Route,
 
   // Routes
   Tab,
@@ -64,8 +68,10 @@ function(
 ){
 
   // Globals
-  window.Mustache = Mustache;
-  window.View = View;
+  window.__Mustache = Mustache;
+  window.__View = View;
+  window.__Controller = Controller;
+  window.__Route = Route;
 
   var routes = [
     Tab,

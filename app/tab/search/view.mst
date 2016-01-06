@@ -32,10 +32,18 @@
 
         </div>
 
-        <!-- Rating -->
-        <div class="rating">
-          {{ rating }}
+        <div class="badges">
+          <!-- Rating -->
+          <div class="rating">
+            {{ rating }}
+          </div>
+
+          <!-- Rating -->
+          <div class="favorite">
+            {{ favorite }}
+          </div>
         </div>
+
       </div>
     {{ /tabs }}
   </div>

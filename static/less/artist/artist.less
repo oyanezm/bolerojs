@@ -1,22 +1,102 @@
 .artist-frame{
 
-  .artist-sheet,.tabs{
+  .artist-left,.tabs{
     .w50;
     .left;
-    padding:0px 10px;
     @media @mobile{
       .w100;
-      padding:0px;
     }
   }
 
   .artist-sheet{
-    img{
-      .w100;
+    .bs5;
+    background-size:cover !important;
+    .inner{
+      .s10-inner;
+      .relative;
+      padding-bottom:33%;
+      background:fade(black,50);
+      .follow,.total-tabs,.followers,.videos{
+        .ts10;
+        .acenter;
+        .s10-inner;
+        clear:both;
+        width: 75px;
+        border-radius: 2px;
+        background:@color-one;
+      }
+      .total-tabs,.followers,.videos{
+        &:before{
+          .rs5;
+          .left;
+        }
+      }
+      .follow{
+        .block;
+        .acenter;
+        background: @color-six;
+        color: @color-one;
+      }
+      .followers{
+        &:before{
+          .icon("\f0c0");
+        }
+      }
+      .total-tabs{
+        &:before{
+          .icon("\f0f6");
+        }
+      }
+      .videos{
+        &:before{
+          .icon("\f1c8");
+        }
+      }
+    }
+  }
+
+  .video-bottom{
+    .w100;
+    @media @mobile{
+      .bs10;
+      .overflow;
+    }
+    .play{
+      .left;
+      .h100;
+      .relative;
+      width:33.33%;
+      height:100px;
+      background-size:cover !important;
+      @media @mobile{
+        .w100;
+      }
+      &:before{
+        .absolute;
+        .w100;
+        .h100;
+        content:"";
+        background:url("../img/play.png");
+        background-size:cover;
+        background-position-x:center;
+        background-color:black;
+        opacity:0.6;
+        @media @mobile{
+          background-size:contain;
+        }
+      }
+      &:hover:before{
+        .opacity-transition;
+        opacity:0;
+      }
     }
   }
 
   .tabs{
+    padding:0px 10px;
+    @media @mobile{
+      padding:0px;
+    }
     .tab{
       .w100;
       .bs5;

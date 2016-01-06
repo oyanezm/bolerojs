@@ -18,7 +18,7 @@ define(function(){
       categories: categories
     };
 
-    View.render(
+    __View.render(
       widget.module,
       context,
       widget.dom

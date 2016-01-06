@@ -1,15 +1,11 @@
 define([
-  "system/core/route",
   "system/core/ajax",
   "system/core/menu",
-  "system/core/controller",
   "system/core/widget",
   "system/core/static"
 ],function(
-  Route,
   Ajax,
   Menu,
-  Controller,
   Widget,
   Static
 ){
@@ -28,8 +24,6 @@ define([
    **/
   Framework.prototype.run = function(){
 
-    window.__Controller = Controller;
-    window.__Route = Route;
 
     Static.load();
 

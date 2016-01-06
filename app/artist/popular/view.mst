@@ -6,7 +6,7 @@
     {{ #recent }}
       <div class="tab">
         <div class="inner">
-          <a class="thumb" href="" route="tab" args="[{{ id }}]">
+          <a class="thumb" href="" route="artist" args="[{{ artist.id }}]">
             <img src="{{ artist.img }}" />
           </a>
           <div class="desc">

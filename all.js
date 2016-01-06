@@ -12774,17 +12774,13 @@ define('system/core/static',[
 })
 ;
 define('system/core/framework',[
-  "system/core/route",
   "system/core/ajax",
   "system/core/menu",
-  "system/core/controller",
   "system/core/widget",
   "system/core/static"
 ],function(
-  Route,
   Ajax,
   Menu,
-  Controller,
   Widget,
   Static
 ){
@@ -12803,8 +12799,6 @@ define('system/core/framework',[
    **/
   Framework.prototype.run = function(){
 
-    window.__Controller = Controller;
-    window.__Route = Route;
 
     Static.load();
 
@@ -12824,11 +12818,9 @@ define('system/core/framework',[
 });
 
 define('system/core/view',[
-  "system/core/route",
   "system/core/widget"
 ],
 function(
-  Route,
   Widget
 ){
 
@@ -12850,7 +12842,7 @@ function(
     $.get(url,function(data){
 
       // Render View
-      var html = Mustache.render(
+      var html = __Mustache.render(
         data,
         context
       );
@@ -12867,7 +12859,7 @@ function(
         Widget.initialize(container);
       }
 
-      Route.replace();
+      __Route.replace();
 
     });
 
@@ -13573,7 +13565,7 @@ define('app/header/controller',[],function(){
     var context = {
     };
 
-    View.render(
+    __View.render(
       widget.module,
       context,
       widget.dom
@@ -13604,7 +13596,7 @@ define('app/menu/controller',[],function(){
       categories: categories
     };
 
-    View.render(
+    __View.render(
       widget.module,
       context,
       widget.dom
@@ -13679,6 +13671,7 @@ define('app/tab/model',[],function(){
         name : "el viejo comunista",
         video: "youtube",
         rating: 5.0,
+        favorite: 120,
         comments: 2,
         user:{
           name:"oyanezm"
@@ -13694,6 +13687,7 @@ define('app/tab/model',[],function(){
         name : "La funa",
         video : "yutube",
         rating: 4.0,
+        favorite: 26,
         comments: 2,
         user:{
           name:"oyanezm"
@@ -13709,6 +13703,7 @@ define('app/tab/model',[],function(){
         name : "el gavilan",
         video: "",
         rating: 2.0,
+        favorite: 178,
         comments: 3,
         user:{
           name:"oyanezm"
@@ -13750,7 +13745,7 @@ function(
       tab: Tab.get(id)
     }
 
-    View.render("tab",context);
+    __View.render("tab",context);
   }
 
   return Controller;
@@ -13777,7 +13772,7 @@ define('app/tab/search/controller',[
       keyword: keyword
     };
 
-    View.render(
+    __View.render(
       "tab.search",
       context
     );
@@ -13805,7 +13800,7 @@ define('app/tab/search/form/controller',[],function(){
 
     });
 
-    View.render(
+    __View.render(
       widget.module,
       context,
       widget.dom
@@ -13819,6 +13814,26 @@ define('app/artist/model',[],function(){
 
   var Artist = function(){}
 
+  Artist.get_videos = function(total){
+    return [
+      {
+        id: 1,
+        url: "",
+        img: "http://www.24horas.cl/incoming/joe_vasconcellos_youtube-1695748/ALTERNATES/w620h350/JOE_VASCONCELLOS_YOUTUBE"
+      },
+      {
+        id: 2,
+        url: "",
+        img: "https://i.ytimg.com/vi/epKVC3YFwp0/hqdefault.jpg"
+      },
+      {
+        id: 3,
+        url: "",
+        img: "http://www.katalogo.cl/wp-content/uploads/2015/07/Joe-Copiar.jpg"
+      }
+    ];
+  }
+
   Artist.get = function(id){
 
     return {
@@ -13827,6 +13842,7 @@ define('app/artist/model',[],function(){
       img : "http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg",
       followers: 241,
       total: 200,
+      videos:45,
       tabs: [
         {
           id: 1,
@@ -13937,10 +13953,11 @@ function(
 
     var context = {
       id: id,
-      artist: Artist.get(id)
+      artist: Artist.get(id),
+      videos: Artist.get_videos(3)
     }
 
-    View.render("artist",context);
+    __View.render("artist",context);
   }
 
   return Controller;
@@ -13998,6 +14015,8 @@ requirejs([
   // CORE
   "system/core/framework",
   "system/core/view",
+  "system/core/controller",
+  "system/core/route",
 
   // Routes
   "app/tab/route",
@@ -14023,6 +14042,8 @@ function(
   // Core
   Framework,
   View,
+  Controller,
+  Route,
 
   // Routes
   Tab,
@@ -14034,8 +14055,10 @@ function(
 ){
 
   // Globals
-  window.Mustache = Mustache;
-  window.View = View;
+  window.__Mustache = Mustache;
+  window.__View = View;
+  window.__Controller = Controller;
+  window.__Route = Route;
 
   var routes = [
     Tab,

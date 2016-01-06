@@ -62,6 +62,7 @@ define(function(){
         name : "el viejo comunista",
         video: "youtube",
         rating: 5.0,
+        favorite: 120,
         comments: 2,
         user:{
           name:"oyanezm"
@@ -77,6 +78,7 @@ define(function(){
         name : "La funa",
         video : "yutube",
         rating: 4.0,
+        favorite: 26,
         comments: 2,
         user:{
           name:"oyanezm"
@@ -92,6 +94,7 @@ define(function(){
         name : "el gavilan",
         video: "",
         rating: 2.0,
+        favorite: 178,
         comments: 3,
         user:{
           name:"oyanezm"

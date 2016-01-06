@@ -11,10 +11,11 @@ function(
 
     var context = {
       id: id,
-      artist: Artist.get(id)
+      artist: Artist.get(id),
+      videos: Artist.get_videos(3)
     }
 
-    View.render("artist",context);
+    __View.render("artist",context);
   }
 
   return Controller;

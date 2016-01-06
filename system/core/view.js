@@ -1,9 +1,7 @@
 define([
-  "system/core/route",
   "system/core/widget"
 ],
 function(
-  Route,
   Widget
 ){
 
@@ -25,7 +23,7 @@ function(
     $.get(url,function(data){
 
       // Render View
-      var html = Mustache.render(
+      var html = __Mustache.render(
         data,
         context
       );
@@ -42,7 +40,7 @@ function(
         Widget.initialize(container);
       }
 
-      Route.replace();
+      __Route.replace();
 
     });
 

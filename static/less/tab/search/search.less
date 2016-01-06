@@ -40,7 +40,7 @@
         }
       }
       .desc{
-        height:100px;
+        height:95px;
         .left;
         .s5-inner;
         i{
@@ -57,21 +57,29 @@
           }
         }
       }
-      .rating{
+      .badges{
         .right;
-        text-align:center;
-        color:@color-one;
-        background:@color-three;
-        height:90px;
         width:100px;
-        font-size:50px;
-        font-family:@font-three;
-        line-height:2;
-        &:hover:before{
-          content: "Rating";
-          display: block;
-          font-size: 30px;
-          line-height: 3.3;
+        .rating,.favorite{
+          .f20;
+          .w100;
+          .acenter;
+          height:45px;
+          line-height:2;
+        }
+        .rating{
+          color:@color-one-fade;
+          background:@color-three;
+          &:before{
+            .icon("\f005");
+          }
+        }
+        .favorite{
+          color:@color-two;
+          background:@color-five;
+          &:before{
+            .icon("\f004");
+          }
         }
       }
     }

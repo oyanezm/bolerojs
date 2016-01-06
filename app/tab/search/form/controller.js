@@ -16,7 +16,7 @@ define(function(){
 
     });
 
-    View.render(
+    __View.render(
       widget.module,
       context,
       widget.dom

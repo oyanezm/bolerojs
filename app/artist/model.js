@@ -2,6 +2,26 @@ define(function(){
 
   var Artist = function(){}
 
+  Artist.get_videos = function(total){
+    return [
+      {
+        id: 1,
+        url: "",
+        img: "http://www.24horas.cl/incoming/joe_vasconcellos_youtube-1695748/ALTERNATES/w620h350/JOE_VASCONCELLOS_YOUTUBE"
+      },
+      {
+        id: 2,
+        url: "",
+        img: "https://i.ytimg.com/vi/epKVC3YFwp0/hqdefault.jpg"
+      },
+      {
+        id: 3,
+        url: "",
+        img: "http://www.katalogo.cl/wp-content/uploads/2015/07/Joe-Copiar.jpg"
+      }
+    ];
+  }
+
   Artist.get = function(id){
 
     return {
@@ -10,6 +30,7 @@ define(function(){
       img : "http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg",
       followers: 241,
       total: 200,
+      videos:45,
       tabs: [
         {
           id: 1,

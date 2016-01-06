@@ -19,7 +19,7 @@ define([
       keyword: keyword
     };
 
-    View.render(
+    __View.render(
       "tab.search",
       context
     );

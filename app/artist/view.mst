@@ -1,18 +1,37 @@
 <div class="artist-frame content">
 
-  <div class="artist-sheet">
-    <h2>
-      {{ artist.name }}
-    </h2>
-    <a>Seguir</a><br/>
-    Tablaturas: {{ artist.total }}<br/>
-    Seguidores: {{ artist.followers }}<br/>
-    <br/>
-    <img src="{{ artist.img }}" />
+  <div class="artist-left">
+    <div class="artist-sheet" style="background:url({{ artist.img }})">
+      <div class="inner">
+        <h2>
+          {{ artist.name }}
+        </h2>
+        <a class="follow" href="#">
+          Seguir
+        </a>
+        <div class="followers">
+          {{ artist.followers }}
+        </div>
+        <div class="total-tabs">
+          {{ artist.total }}
+        </div>
+        <div class="videos">
+          {{ artist.videos }}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Video Tabs -->
+    <div class="video-bottom">
+      {{ #videos }}
+        <a href="#" class="play" style="background:url({{ img }})">
+        </a>
+      {{ /videos }}
+    </div>
   </div>
 
   <div class="tabs">
-    <h2> Tablaturas</h2>
     {{ #artist.tabs}}
       <div class="tab">
         <div class="desc">
