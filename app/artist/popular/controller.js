@@ -13,7 +13,7 @@ define([
       artists: Artist.get_popular()
     };
 
-    View.render("artist.popular",context);
+    __View.render("artist.popular",context);
   }
 
   return Controller;
