@@ -12,5 +12,5 @@
   include: ["requireLib"],
 
   // DEBUG
-  optimize: "none",
+  //optimize: "none",
 })
