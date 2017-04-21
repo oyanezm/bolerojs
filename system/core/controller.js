@@ -29,8 +29,8 @@ define([],function(
       requirejs.toUrl(url)
     );
 
-    require([path],function(controller){
-      controller(args);
+    require([path],function(responseController){
+      responseController(args);
     });
 
   }
