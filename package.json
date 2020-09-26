@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/oyanezm/another-spa-bites-the-dust#readme",
   "dependencies": {
+    "jquery": "^3.5.1",
+    "less": "^3.12.2",
+    "mustache": "^4.0.1",
     "requirejs": "^2.3.6"
   }
 }

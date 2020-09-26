@@ -8,8 +8,8 @@ requirejs.config({
   baseUrl: baseUrl,
 
   paths: {
-    "mustache": "system/lib/mustache",
-    "jquery": "system/lib/jquery-1.11.3.min"
+    "mustache": "node_modules/mustache/mustache",
+    "jquery": "node_modules/jquery/dist/jquery.min"
   },
 
   shim: {
@@ -26,10 +26,10 @@ requirejs.config({
 requirejs([
 
   // CORE
-  "system/core/framework",
-  "system/core/view",
-  "system/core/controller",
-  "system/core/route",
+  "core/framework",
+  "core/view",
+  "core/controller",
+  "core/route",
 
   // Routes
   "app/tab/route",
@@ -50,37 +50,37 @@ requirejs([
   "app/artist/controller",
   "app/artist/popular/controller"
 ],
-function(
+  function (
 
-  // Core
-  Framework,
-  View,
-  Controller,
-  Route,
+    // Core
+    Framework,
+    View,
+    Controller,
+    Route,
 
-  // Routes
-  Tab,
-  Tab_Search,
-  Artist,
-  Popular,
-
-  Mustache
-){
-
-  // Globals
-  window.__Mustache = Mustache;
-  window.__View = View;
-  window.__Controller = Controller;
-  window.__Route = Route;
-
-  var routes = [
+    // Routes
     Tab,
     Tab_Search,
     Artist,
-    Popular
-  ];
+    Popular,
 
-  f = new Framework(routes);
-  f.run();
+    Mustache
+  ) {
 
-});
+    // Globals
+    window.__Mustache = Mustache;
+    window.__View = View;
+    window.__Controller = Controller;
+    window.__Route = Route;
+
+    var routes = [
+      Tab,
+      Tab_Search,
+      Artist,
+      Popular
+    ];
+
+    f = new Framework(routes);
+    f.run();
+
+  });

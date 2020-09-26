@@ -1,14 +1,14 @@
-define(function(){
+define(function () {
 
-  var Tab = function(){}
+  var Tab = function () { }
 
   /**
    * Get Single Tab
    **/
-  Tab.get = function(){
+  Tab.get = function () {
 
     var tab = {
-      id : 134,
+      id: 134,
       name: "El vino y el destino",
       content: "" +
         "Quisiera tomar veneno\n" +
@@ -41,13 +41,13 @@ define(function(){
         "Yo me vine porque quise,\n" +
         "Ahora ya vuelvo!",
 
-      artist : {
+      artist: {
         id: 12,
         name: "nano stern"
       }
     };
 
-    tab.content = tab.content.replace(/\n/g , "<br>");
+    tab.content = tab.content.replace(/\n/g, "<br>");
 
     return tab;
   }
@@ -55,54 +55,54 @@ define(function(){
   /**
    * Get recent uploaded tabs
    **/
-  Tab.get_recent = function(limit){
+  Tab.get_recent = function (limit) {
     return [
       {
         id: 1,
-        name : "el viejo comunista",
+        name: "el viejo comunista",
         video: "youtube",
         rating: 5.0,
         favorite: 120,
         comments: 2,
-        user:{
-          name:"oyanezm"
+        user: {
+          name: "oyanezm"
         },
-        artist:{
+        artist: {
           id: 1,
-          name:"manuel garcia",
-          img:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSEBwV2v5465pMlRETzhzhi4OFTcNgE91huz8Pz4jpEHHgfSKeOuw"
+          name: "joe vasconcellos",
+          img: "http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
         }
       },
       {
         id: 2,
-        name : "La funa",
-        video : "yutube",
+        name: "La funa",
+        video: "yutube",
         rating: 4.0,
         favorite: 26,
         comments: 2,
-        user:{
-          name:"oyanezm"
+        user: {
+          name: "oyanezm"
         },
-        artist:{
+        artist: {
           id: 2,
-          name:"joe vasconcellos",
-          img:"http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
+          name: "joe vasconcellos",
+          img: "http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
         }
       },
       {
         id: 3,
-        name : "el gavilan",
+        name: "el gavilan",
         video: "",
         rating: 2.0,
         favorite: 178,
         comments: 3,
-        user:{
-          name:"oyanezm"
+        user: {
+          name: "oyanezm"
         },
-        artist:{
+        artist: {
           id: 3,
-          name:"violeta parra",
-          img:"http://revistaterminal.cl/web/wp-content/uploads/2012/02/violeta.jpg"
+          name: "joe vasconcellos",
+          img: "http://1.bp.blogspot.com/-aQbumY6v5iE/UAiJd5VY_HI/AAAAAAAAAAg/-oCyO-0yuJ0/s1600/Joe_Vasconcellos-Vivo-Frontal.jpg"
         }
       }
     ];
@@ -112,7 +112,7 @@ define(function(){
    * Search tabs based on keyword
    * @param string {keyword}
    **/
-  Tab.search = function(keyword){
+  Tab.search = function (keyword) {
     return Tab.get_recent();
   }
 

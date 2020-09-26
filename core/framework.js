@@ -1,19 +1,19 @@
 define([
-  "system/core/ajax",
-  "system/core/menu",
-  "system/core/widget",
-  "system/core/static"
-],function(
+  "core/ajax",
+  "core/menu",
+  "core/widget",
+  "core/static"
+], function (
   Ajax,
   Menu,
   Widget,
   Static
-){
+) {
 
   /**
    * Constructor
    **/
-  Framework = function(routes){
+  Framework = function (routes) {
 
     this.routes = routes;
 
@@ -22,7 +22,7 @@ define([
   /**
    * Initialize Framework
    **/
-  Framework.prototype.run = function(){
+  Framework.prototype.run = function () {
 
 
     Static.load();

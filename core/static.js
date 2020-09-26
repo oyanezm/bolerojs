@@ -1,13 +1,13 @@
 define([
-  "system/lib/less"
-],function(){
+  "node_modules/less/dist/less"
+], function () {
 
-  var Static = function(){}
+  var Static = function () { }
 
   /**
    * Load static files
    **/
-  Static.load = function(){
+  Static.load = function () {
 
     var css_compiled = "static/css/styles.css?version=" + Enviroment.version;
     var css_mods = [
@@ -19,8 +19,8 @@ define([
     ];
 
     var dev = Enviroment.is_dev();
-    if( dev )   Static.less(less_mods);
-    else        css_mods.push(css_compiled);
+    if (dev) Static.less(less_mods);
+    else css_mods.push(css_compiled);
 
     Static.css(css_mods);
 
@@ -30,17 +30,17 @@ define([
    * Load less files or compiled
    * TODO: less async load because high weight
    **/
-  Static.less = function(modules){
+  Static.less = function (modules) {
 
     var link;
-    var less = require("system/lib/less");
+    var less = require("node_modules/less/dist/less");
 
-    modules.forEach(function(module){
-      link = document.createElement( "link" );
+    modules.forEach(function (module) {
+      link = document.createElement("link");
       link.href = module;
       link.type = "text/css";
       link.rel = "stylesheet/less";
-      document.getElementsByTagName( "head" )[0].appendChild( link );
+      document.getElementsByTagName("head")[0].appendChild(link);
       less.sheets.push(link);
     });
 
@@ -52,16 +52,16 @@ define([
    * Append Css modules to header
    * @param Array {modules}
    **/
-  Static.css = function(modules){
+  Static.css = function (modules) {
 
     var link;
 
-    modules.forEach(function(module){
-      link = document.createElement( "link" );
+    modules.forEach(function (module) {
+      link = document.createElement("link");
       link.href = module;
       link.type = "text/css";
       link.rel = "stylesheet";
-      document.getElementsByTagName( "head" )[0].appendChild( link );
+      document.getElementsByTagName("head")[0].appendChild(link);
     });
 
   }

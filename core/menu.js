@@ -1,19 +1,19 @@
 define([
-  "system/core/device",
-],function(
+  "core/device",
+], function (
   Device
-){
+) {
 
-  var Menu = function(){
+  var Menu = function () {
     return $("menu");
   }
 
   /**
    * Menu Bindings
    **/
-  Menu.bind = function(){
+  Menu.bind = function () {
 
-    $(document).on("click",".menu-trigger",function(e){
+    $(document).on("click", ".menu-trigger", function (e) {
 
       e.preventDefault();
 
@@ -25,13 +25,13 @@ define([
   /**
    * Preventive hide
    **/
-  Menu.hide = function(){
+  Menu.hide = function () {
 
     var menu = Menu();
 
-    if( !Device.is_mobile() ) return;
+    if (!Device.is_mobile()) return;
 
-    if( !menu.is(":visible") ) return;
+    if (!menu.is(":visible")) return;
 
     Menu().slideUp();
 

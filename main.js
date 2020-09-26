@@ -6,8 +6,8 @@
   preserveLicenseComments: false,
   paths: {
     "requireLib": 'require',
-    "mustache": "system/lib/mustache",
-    "jquery": "system/lib/jquery-1.11.3.min"
+    "mustache": "node_modules/mustache/mustache.min",
+    "jquery":   "node_modules/jquery/dist/jquery.min"
   },
   include: ["requireLib"],
 
