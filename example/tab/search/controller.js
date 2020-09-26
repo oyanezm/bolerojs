@@ -1,15 +1,15 @@
 define([
-  "app/tab/model"
-],function(
+  "example/tab/model"
+], function (
   Tab
-){
+) {
 
-  var Controller = function(args){
+  var Controller = function (args) {
 
-    var keyword,tabs;
+    var keyword, tabs;
 
     keyword = args.pop();
-    keyword = keyword.replace("-"," ");
+    keyword = keyword.replace("-", " ");
 
     tabs = Tab.search(keyword);
 

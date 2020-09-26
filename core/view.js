@@ -17,7 +17,7 @@ define([
     ) {
 
       var module = name.split('.').join('/');
-      var path = "app/" + module + "/view.mst";
+      var path = "example/" + module + "/view.mst";
       var url = require.toUrl(path);
 
       $.get(url, function (data) {

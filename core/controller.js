@@ -1,23 +1,23 @@
-define([],function(
-){
+define([], function (
+) {
 
   /**
    * Constructor
    **/
-  var Controller = function(route){
+  var Controller = function (route) {
     this.route = route;
   }
 
   /**
    * Executes controller
    **/
-  Controller.prototype.run = function(){
+  Controller.prototype.run = function () {
 
     var controller = this.route.controller;
     var module = controller.split('.').join('/');
     var args = this.route.args;
 
-    var path = "app/" + module + "/controller";
+    var path = "example/" + module + "/controller";
     var url = __Route.url(
       this.route.name,
       this.route.args
@@ -29,7 +29,7 @@ define([],function(
       requirejs.toUrl(url)
     );
 
-    require([path],function(requestedController){
+    require([path], function (requestedController) {
       requestedController(args);
     });
 
@@ -39,8 +39,8 @@ define([],function(
    * Controller run wrapper
    * @param string {routename}
    **/
-  Controller.dispatch = function(routename,args){
-    var route,c;
+  Controller.dispatch = function (routename, args) {
+    var route, c;
 
     route = __Route.get(routename);
     route.args = args;

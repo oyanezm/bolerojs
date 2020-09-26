@@ -32,23 +32,23 @@ requirejs([
   "core/route",
 
   // Routes
-  "app/tab/route",
-  "app/tab/search/route",
-  "app/artist/route",
-  "app/artist/popular/route",
+  "example/tab/route",
+  "example/tab/search/route",
+  "example/artist/route",
+  "example/artist/popular/route",
 
   // Lib
   "mustache",
   "jquery",
 
   // Controller
-  "app/header/controller",
-  "app/menu/controller",
-  "app/tab/controller",
-  "app/tab/search/controller",
-  "app/tab/search/form/controller",
-  "app/artist/controller",
-  "app/artist/popular/controller"
+  "example/header/controller",
+  "example/menu/controller",
+  "example/tab/controller",
+  "example/tab/search/controller",
+  "example/tab/search/form/controller",
+  "example/artist/controller",
+  "example/artist/popular/controller"
 ],
   function (
 

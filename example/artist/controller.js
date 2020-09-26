@@ -1,5 +1,5 @@
 define([
-  "app/artist/model"
+  "example/artist/model"
 ],
 function(
   Artist
