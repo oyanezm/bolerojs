@@ -1,0 +1,26 @@
+{
+  "name": "bolero",
+  "version": "1.0.0",
+  "description": "spa framework",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oyanezm/another-spa-bites-the-dust.git"
+  },
+  "keywords": [
+    "spa",
+    "frontend"
+  ],
+  "author": "oyanezm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oyanezm/another-spa-bites-the-dust/issues"
+  },
+  "homepage": "https://github.com/oyanezm/another-spa-bites-the-dust#readme",
+  "dependencies": {
+    "requirejs": "^2.3.6"
+  }
+}
