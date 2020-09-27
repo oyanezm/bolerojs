@@ -1,0 +1,89 @@
+.icon(@id) {
+  content: @id;
+  font-family: "FontAwesome";
+}
+
+.break-mobile{
+   @media @mobile{
+     .block;
+   }
+}
+
+.hidden{
+  display:none;
+}
+.hidden-mobile{
+  @media @mobile{
+    .hidden;
+  }
+}
+.hidden-desktop{
+  .hidden;
+  @media @mobile{
+    .iblock;
+  }
+}
+.aleft{
+  text-align:left;
+}
+.aright{
+  text-align:right;
+}
+.acenter{
+  text-align:center;
+}
+
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+
+.box-shadow{
+  -webkit-box-shadow: 2px 2px 20px -1px rgba(0,0,0,0.35);
+  -moz-box-shadow: 2px 2px 20px -1px rgba(0,0,0,0.35);
+  box-shadow: 2px 2px 20px -1px rgba(0,0,0,0.35);
+}
+
+.text-shadow{
+    text-shadow:1px 1px 0px black;
+}
+
+.transition{
+  -webkit-transition: background-color 1s ease;
+  -moz-transition: background-color 1s ease;
+  -o-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+.opacity-transition{
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+.hand{
+  cursor: pointer;
+  cursor: hand;
+}
+.absolute{
+  position:absolute;
+}
+.relative{
+  position:relative;
+}
+
+.overflow{
+  overflow:auto;
+}
+.overfidden{
+  overflow:hidden;
+}
+.capitalize{
+  text-transform:capitalize;
+}
+.block{
+  display:block;
+}
+.iblock{
+  display:inline-block;
+}

@@ -1,0 +1,92 @@
+.popular-frame{
+
+  .recent{
+    .left;
+    .w100;
+    .bs10;
+    .tab{
+      .left;
+      width:33.33%;
+      padding:2px;
+      *,a{
+        color:@color-one-fade;
+      }
+      @media @mobile{
+        .w100;
+      }
+      .inner{
+        background:@color-two;
+        overflow:auto;
+        .box-shadow;
+        .thumb{
+          .w30;
+          .left;
+          img{
+            .w100;
+          }
+        }
+        .desc{
+          .w70;
+          .left;
+          padding-left:10px;
+          padding-top:15px;
+          .artist,.song{
+            text-transform:capitalize;
+          }
+        }
+      }
+    }
+  }
+
+  .thumbnails{
+    .left;
+    .w100;
+    overflow:auto;
+
+    .artist{
+      .ts5;
+      .left;
+      width:33.33%;
+      height:33.33%;
+      padding:1px;
+      position:relative;
+      overflow:hidden;
+
+      @media @mobile{
+        width:50%;
+        height:140px;
+      }
+
+      img{
+        width:100%;
+      }
+      span{
+        display:none;
+      }
+      &:hover{
+        img{
+          opacity:0.3;
+        }
+        span{
+          display:block;
+          text-transform:capitalize;
+          position:absolute;
+          width:100%;
+          text-align:center;
+          bottom:20px;
+        }
+      }
+      &:hover:before{
+        content:"+";
+        font-size:100px;
+        position:absolute;
+        width:100%;
+        text-align:center;
+        line-height:1.8;
+        @media @mobile{
+          line-height:1.2;
+        }
+      }
+    }
+  }
+}

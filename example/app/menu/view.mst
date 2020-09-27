@@ -1,0 +1,14 @@
+  <a class="category logo">
+    tablatu
+  </a>
+
+  {{ #categories }}
+      <a class="category" href="#" route="{{ route }}">
+          {{ name }}
+      </a>
+  {{ /categories }}
+
+  <a class="category">
+    SOCIAL ICONS
+  </a>
+

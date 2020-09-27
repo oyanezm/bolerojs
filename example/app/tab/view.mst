@@ -1,0 +1,13 @@
+<div class="tab-frame content">
+  <h1> {{ tab.artist.name }}</h1>
+  <h2> {{ tab.name }}</h2>
+  <br/>
+
+  {{{ tab.content }}}
+
+  <br/>
+  <br/>
+  <a route="artist" args="[{{ tab.artist.id }}]">
+    Ver otras canciones de {{ tab.artist.name }}
+  </a>
+</div>

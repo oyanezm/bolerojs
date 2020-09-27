@@ -1,0 +1,7 @@
+<form>
+  <span class="search-title">Buscar</span>
+  <input name="keyword" placeholder="Artista / Canción"></input>
+  <button type="submit" class="search-icon">
+    <i class="fa fa-search"></i>
+  </button>
+</input>

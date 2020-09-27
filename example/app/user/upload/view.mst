@@ -1,0 +1,7 @@
+<h1>Añadir Tab</h1>
+
+<form>
+  <input>Artista</input>
+  <input>Cancion</input>
+  <button>Subir</button>
+</form>

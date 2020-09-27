@@ -1,0 +1,70 @@
+
+<div class="popular-frame content">
+
+  <div class="recent">
+    <h2>Subidas Recientemente</h2>
+    {{ #recent }}
+      <div class="tab">
+        <div class="inner">
+          <a class="thumb" href="" route="artist" args="[{{ artist.id }}]">
+            <img src="{{ artist.img }}" />
+          </a>
+          <div class="desc">
+
+            <a class="artist" route="tab" args="[{{ id }}]">
+              {{ name }}
+            </a><br/>
+
+            <a class="song" route="artist" args="[{{ artist.id }}]">
+              {{ artist.name }}
+            </a><br/>
+
+            subido por <a>{{ user.name }}</a>
+          </div>
+        </div>
+      </div>
+    {{ /recent }}
+  </div>
+
+  <div class="recent">
+    <h2>Mejor Puntuadas</h2>
+    {{ #recent }}
+      <div class="tab">
+        <div class="inner">
+          <a class="thumb" href="" route="tab" args="[{{ id }}]">
+            <img src="{{ artist.img }}" />
+          </a>
+          <div class="desc">
+
+            <a class="artist" route="tab" args="[{{ id }}]">
+              {{ name }}
+            </a><br/>
+
+            <a class="song" route="artist" args="[{{ artist.id }}]">
+              {{ artist.name }}
+            </a><br/>
+
+            subido por <a>{{ user.name }}</a>
+          </div>
+        </div>
+      </div>
+    {{ /recent }}
+  </div>
+
+
+  <div class="thumbnails">
+    <h2>Lo Más Buscado</h2>
+    {{ #artists }}
+      <a
+        href = "#"
+        class = "artist"
+        route = "artist"
+        args="[{{ id }}]"
+      >
+        <img src="{{ url }}" ></img>
+        <span>{{ name }}</span>
+      </a>
+    {{ /artists }}
+  </div>
+
+</div>

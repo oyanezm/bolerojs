@@ -1,0 +1,53 @@
+<div class="artist-frame content">
+
+  <div class="artist-left">
+    <div class="artist-sheet" style="background:url({{ artist.img }})">
+      <div class="inner">
+        <h2>
+          {{ artist.name }}
+        </h2>
+        <a class="follow" href="#">
+          Seguir
+        </a>
+        <div class="followers">
+          {{ artist.followers }}
+        </div>
+        <div class="total-tabs">
+          {{ artist.total }}
+        </div>
+        <div class="videos">
+          {{ artist.videos }}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Video Tabs -->
+    <div class="video-bottom">
+      {{ #videos }}
+        <a href="#" class="play" style="background:url({{ img }})">
+        </a>
+      {{ /videos }}
+    </div>
+  </div>
+
+  <div class="tabs">
+    {{ #artist.tabs}}
+      <div class="tab">
+        <div class="desc">
+          <a route="tab" args="[1]" class="capitalize">
+            {{ name }}
+          </a><br/>
+          <i class="fa fa-commenting"></i>
+          <i class="fa fa-youtube-play"></i>
+        </div>
+        <div class="favorite">
+          {{ fav }}
+        </div>
+        <div class="rating">
+          {{{ rating }}}
+        </div>
+      </div>
+    {{ /artist.tabs }}
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "name": "bolero",
+  "version": "1.0.0",
+  "description": "spa framework",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oyanezm/bolerojs.git"
+  },
+  "keywords": [
+    "spa",
+    "frontend"
+  ],
+  "author": "oyanezm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oyanezm/bolerojs/issues"
+  },
+  "homepage": "https://github.com/oyanezm/bolerojs#readme",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "less": "^3.12.2",
+    "mustache": "^4.0.1",
+    "requirejs": "^2.3.6"
+  }
+}
